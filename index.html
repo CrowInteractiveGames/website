@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Crow Interactive — Oyunlar</title>
+  <title>Crow Interactive</title>
   <meta name="description" content="Crow Interactive oyunlarının resmi tanıtım sayfası." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
     :root { color-scheme: dark; }
     body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji'; }
     .glass { background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); backdrop-filter: blur(8px); }
-    .gradient-text { background: linear-gradient(90deg, #8b5cf6, #22d3ee); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .gradient-text { background: linear-gradient(90deg,#9805fa,#dd05fa ); -webkit-background-clip: text; background-clip: text; color: transparent; }
   </style>
 </head>
 <body class="h-full bg-neutral-950 text-neutral-100">
@@ -21,13 +21,23 @@
   <header class="sticky top-0 z-50 glass border-b border-white/10">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 py-3 flex items-center justify-between">
       <a href="#" class="text-lg font-black tracking-tight gradient-text">Crow Interactive</a>
+      <button id="menuBtn" class="sm:hidden p-2 rounded-lg border border-white/20">Menu</button>
       <nav class="hidden sm:flex items-center gap-6 text-sm">
-        <a href="#games" class="hover:text-white/90">Oyunlar</a>
-        <a href="#about" class="hover:text-white/90">Hakkında</a>
-        <a href="#contact" class="hover:text-white/90">İletişim</a>
+        <a href="#games" class="hover:text-white/90">Games</a>
+        <a href="#about" class="hover:text-white/90">About</a>
+        <a href="#contact" class="hover:text-white/90">Contact</a>
       </nav>
     </div>
   </header>
+
+  <!-- Mobile Nav -->
+  <nav id="mobileNav" class="sm:hidden hidden border-b border-white/10 glass">
+    <div class="mx-auto max-w-6xl px-4 py-3 flex flex-col gap-3 text-sm">
+      <a href="#games">Oyunlar</a>
+      <a href="#about">Hakkında</a>
+      <a href="#contact">İletişim</a>
+    </div>
+  </nav>
 
   <!-- Hero -->
   <section class="relative overflow-hidden">
@@ -36,13 +46,14 @@
     </div>
     <div class="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-24 text-center">
       <h1 class="text-3xl sm:text-5xl font-black leading-tight">
-        Simülasyon ve parti oyunları.
-        <span class="block gradient-text">Küçük stüdyo, net oyunlar.</span>
+        Create the Way
+        <span class="block gradient-text">Turning Ideas Into Play</span>
       </h1>
-      <p class="mt-4 text-neutral-300 max-w-2xl mx-auto">Crow Interactive olarak bağımsız oyunlar geliştiriyoruz. Aşağıdan oyunlarımızı inceleyin.</p>
+      <p class="mt-4 text-neutral-300 max-w-xl mx-auto">At Crow Interactive, we develop independent PC games of all kinds. Explore our games below.
+</p>
       <div class="mt-8 flex items-center justify-center gap-3">
-        <a href="#games" class="px-4 py-2 rounded-xl bg-white text-neutral-900 font-semibold hover:bg-white/90">Oyunları Gör</a>
-        <a href="#contact" class="px-4 py-2 rounded-xl border border-white/20 hover:border-white/40">İletişime Geç</a>
+        <a href="#games" class="px-4 py-2 rounded-xl bg-white text-neutral-900 font-semibold hover:bg-white/90">See Games</a>
+        <a href="#contact" class="px-4 py-2 rounded-xl border border-white/20 hover:border-white/40">Contact</a>
       </div>
     </div>
   </section>
@@ -50,58 +61,55 @@
   <!-- Games -->
   <section id="games" class="mx-auto max-w-6xl px-4 sm:px-6 py-12 sm:py-20">
     <div class="flex items-end justify-between gap-4">
-      <h2 class="text-2xl sm:text-3xl font-bold">Oyunlar</h2>
-      <span class="text-xs text-neutral-400">Steam bağlantıları aşağıda</span>
+      <h2 class="text-2xl sm:text-3xl font-bold">Games</h2>
+      <span class="text-xs text-neutral-400">Steam links and press kits below</span>
     </div>
 
     <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <!-- VMBS Card -->
       <article class="group rounded-2xl overflow-hidden border border-white/10 glass flex flex-col">
-        <div class="aspect-[16/9] bg-neutral-900">
-          <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2998750/header.jpg" alt="Vending Machine Business Simulator" class="h-full w-full object-cover object-center opacity-90 group-hover:opacity-100 transition" />
+        <div class="aspect-[16/7.5] bg-neutral-900">
+          <img src="Images/vmbs.jpg" alt="Vending Machine Business Simulator" class="h-full w-full object-cover object-center opacity-90 group-hover:opacity-100 transition sm:rounded-none rounded-b-2xl" />
         </div>
         <div class="p-5 flex-1 flex flex-col">
           <h3 class="text-lg font-semibold">Vending Machine Business Simulator</h3>
-          <p class="mt-2 text-sm text-neutral-300">Kendi otomat imparatorluğunu kur. Satın al, yerleştir, stokla ve büyüt.</p>
-          <p class="mt-2 text-sm text-neutral-400">Mekân kirala, ürün tedarik zincirini oluştur, fiyatları optimize et, talebe göre stok yönetimi yap. Analitiklerle büyümeyi takip et.</p>
-          <div class="mt-4 flex items-center gap-3">
+          <p class="mt-2 text-sm text-neutral-300">Build your own vending empire. Buy, place, stock, and expand.</p>
+          <p class="mt-2 text-sm text-neutral-400">Rent locations, set up your product supply chain, optimize prices, manage inventory based on demand, and track growth with analytics.</p>
+          <div class="mt-4 flex flex-wrap items-center gap-3">
             <a href="https://store.steampowered.com/app/2998750" target="_blank" rel="noreferrer" class="px-3 py-1.5 rounded-lg bg-white text-neutral-900 text-sm font-semibold hover:bg-white/90">Steam</a>
-            <a href="#" class="px-3 py-1.5 rounded-lg border border-white/20 text-sm hover:border-white/40">Web</a>
+              <a href="https://drive.google.com/drive/folders/1E_ccGgnvyawlSk2Wu53kXjSkAEf6eoaK" target="_blank" rel="noreferrer" class="px-3 py-1.5 rounded-lg bg-white text-neutral-900 text-sm font-semibold hover:bg-white/90">Press kit</a>
           </div>
         </div>
       </article>
 
       <!-- Kraken's Bar Card -->
       <article class="group rounded-2xl overflow-hidden border border-white/10 glass flex flex-col">
-        <div class="aspect-[16/9] bg-neutral-900">
-          <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3861910/header.jpg" alt="Kraken's Bar" class="h-full w-full object-cover object-center opacity-90 group-hover:opacity-100 transition" />
+        <div class="aspect-[16/7.5] bg-neutral-900">
+          <img src="Images/kraken.jpg" alt="Kraken's Bar" class="h-full w-full object-cover object-center opacity-90 group-hover:opacity-100 transition sm:rounded-none rounded-b-2xl" />
         </div>
         <div class="p-5 flex-1 flex flex-col">
           <h3 class="text-lg font-semibold">Kraken's Bar</h3>
-          <p class="mt-2 text-sm text-neutral-300">4 oyunculu çevrim içi kart/parti oyunu. Müzakere et, blöf yap, hayatta kal.</p>
-          <p class="mt-2 text-sm text-neutral-400">Hızlı turlar, gergin düellolar ve beklenmedik hamleler. Sesli ve yazılı sohbetle ittifak kur ya da ihanet et.</p>
-          <div class="mt-4 flex items-center gap-3">
+          <p class="mt-2 text-sm text-neutral-300">4-player online card/party game. Negotiate, bluff, and survive.</p>
+          <p class="mt-2 text-sm text-neutral-400">Fast rounds, tense duels, and unexpected moves. Form alliances or betray through voice and text chat.</p>
+          <div class="mt-4 flex flex-wrap items-center gap-3">
             <a href="https://store.steampowered.com/app/3861910" target="_blank" rel="noreferrer" class="px-3 py-1.5 rounded-lg bg-white text-neutral-900 text-sm font-semibold hover:bg-white/90">Steam</a>
-            <a href="#" class="px-3 py-1.5 rounded-lg border border-white/20 text-sm hover:border-white/40">Web</a>
+             <a href="#games"  rel="noreferrer" class="px-3 py-1.5 rounded-xl border border-white/20 hover:border-white/40">Press kit available soon.</a>
           </div>
         </div>
       </article>
 
-      <!-- Third Game Card -->
+      <!-- AI Startup Simulator Card -->
       <article class="group rounded-2xl overflow-hidden border border-white/10 glass flex flex-col">
-        <div class="aspect-[16/9] bg-gradient-to-br from-fuchsia-600/40 to-cyan-400/30 grid place-items-center">
-          <div class="text-center p-6">
-            <div class="text-sm uppercase tracking-wide text-white/70">Yakında</div>
-            <div class="mt-1 text-xl font-bold">AI Startup Simulator</div>
-          </div>
+        <div class="aspect-[16/7.5] bg-neutral-900">
+          <img src="Images/gss.jpg" alt="AI Startup Simulator" class="h-full w-full object-cover object-center opacity-90 group-hover:opacity-100 transition sm:rounded-none rounded-b-2xl" />
         </div>
         <div class="p-5 flex-1 flex flex-col">
-          <h3 class="text-lg font-semibold">AI Startup Simulator</h3>
-          <p class="mt-2 text-sm text-neutral-300">Veri topla, modeller eğit, etik kararlar al ve girişimini büyüt.</p>
-          <p class="mt-2 text-sm text-neutral-400">Kaynak yönetimi, ekip kurma, ürün‑pazar uyumu ve yatırım turları. Erken erişim planları yakında.</p>
-          <div class="mt-4 flex items-center gap-3">
-            <a href="#" class="px-3 py-1.5 rounded-lg border border-white/20 text-sm hover:border-white/40">Steam</a>
-            <a href="#" class="px-3 py-1.5 rounded-lg border border-white/20 text-sm hover:border-white/40">Web</a>
+          <h3 class="text-lg font-semibold">Game Store Simulator</h3>
+          <p class="mt-2 text-sm text-neutral-300">Manage your own game store. Buy stock, set prices, and attract customers.</p>
+          <p class="mt-2 text-sm text-neutral-400">Run your own shop, trade smart, manage stock, and turn your store into a player’s favorite spot.</p>
+          <div class="mt-4 flex flex-wrap items-center gap-3">
+           <a href="https://store.steampowered.com/app/2598930" target="_blank" rel="noreferrer" class="px-3 py-1.5 rounded-lg bg-white text-neutral-900 text-sm font-semibold hover:bg-white/90">Steam</a>
+               
           </div>
         </div>
       </article>
@@ -110,34 +118,44 @@
 
   <!-- About -->
   <section id="about" class="mx-auto max-w-6xl px-4 sm:px-6 py-12 sm:py-20">
-    <h2 class="text-2xl sm:text-3xl font-bold">Hakkında</h2>
-    <p class="mt-4 text-neutral-300 max-w-3xl">Crow Interactive, Türkiye merkezli bağımsız bir oyun stüdyosudur. Simülasyon ve sosyal parti türlerinde yalın, eğlenceli deneyimler üretir. Unity ile geliştirir, topluluk geri bildirimine göre iterasyon yapar.</p>
+    <h2 class="text-2xl sm:text-3xl font-bold">About</h2>
+    <p class="mt-4 text-neutral-300 max-w-3xl">Crow Interactive is an independent game studio based in Turkey. We turn ideas into fun games across all genres, focusing on simple and engaging experiences. Using the latest technology of the Unity game engine, we shape our games together with our players through continuous feedback.</p>
   </section>
 
   <!-- Contact -->
   <section id="contact" class="mx-auto max-w-6xl px-4 sm:px-6 py-12 sm:py-20">
-    <h2 class="text-2xl sm:text-3xl font-bold">İletişim</h2>
-    <p class="mt-4 text-neutral-300">İş birlikleri, basın anahtarları ve destek için tek kanaldan ulaşın.</p>
-    <div class="mt-6 flex items-center gap-3">
-      <a href="mailto:hello@crowinteractive.dev" class="px-4 py-2 rounded-xl bg-white text-neutral-900 font-semibold hover:bg-white/90">hello@crowinteractive.dev</a>
-      <a href="https://store.steampowered.com/developer/CrowInteractive" target="_blank" rel="noreferrer" class="px-4 py-2 rounded-xl border border-white/20 hover:border-white/40">Steam Dev</a>
+    <h2 class="text-2xl sm:text-3xl font-bold">Contact</h2>
+    <p class="mt-4 text-neutral-300">For partnerships, press keys, and support, please reach out through a single channel.</p>
+    <div class="mt-6 flex flex-wrap items-center gap-3">
+      <a href="mailto:hello@crowinteractive.dev" class="px-4 py-2 rounded-xl bg-white text-neutral-900 font-semibold hover:bg-white/90">contact@crowinteractivegames.com</a>
+      <a href="https://store.steampowered.com/developer/crow" target="_blank" rel="noreferrer" class="px-4 py-2 rounded-xl border border-white/20 hover:border-white/40">Publisher Page</a>
+      <a href="https://discord.gg/nUbnxYNqUr" target="_blank" rel="noreferrer" class="px-4 py-2 rounded-xl border border-white/20 hover:border-white/40">Join Discord</a>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="border-t border-white/10">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 py-8 text-sm text-neutral-400 flex flex-col sm:flex-row items-center justify-between gap-3">
-      <p>© <span id="y"></span> Crow Interactive. Tüm hakları saklıdır.</p>
+      <p>© <span id="y"></span> Crow Interactive. All rights reserved.
+</p>
       <div class="flex items-center gap-4">
-        <a class="hover:text-neutral-200" href="#games">Oyunlar</a>
-        <a class="hover:text-neutral-200" href="#about">Hakkında</a>
-        <a class="hover:text-neutral-200" href="#contact">İletişim</a>
+        <a class="hover:text-neutral-200" href="#games">Games</a>
+        <a class="hover:text-neutral-200" href="#about">About</a>
+        <a class="hover:text-neutral-200" href="#contact">Contact</a>
       </div>
     </div>
   </footer>
 
+  
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    (function() {
+      var yEl = document.getElementById('y');
+      if (yEl) yEl.textContent = new Date().getFullYear();
+      var mb = document.getElementById('menuBtn');
+      var mn = document.getElementById('mobileNav');
+      if (mb && mn) mb.addEventListener('click', function(){ mn.classList.toggle('hidden'); });
+    })();
   </script>
+
 </body>
 </html>
