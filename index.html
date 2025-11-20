@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="tr" class="h-full scroll-smooth">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,12 +11,160 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    :root { color-scheme: dark; }
-    body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji'; }
-    .glass { background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); backdrop-filter: blur(8px); }
-    .gradient-text { background: linear-gradient(90deg,#9805fa,#dd05fa ); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    :root {
+      color-scheme: dark;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji';
+    }
+
+    .glass {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+      backdrop-filter: blur(8px);
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #9805fa, #dd05fa);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .discord-pulse {
+      position: relative;
+      overflow: visible;
+    }
+
+    .discord-pulse::after {
+      content: '';
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      width: 9px;
+      height: 9px;
+      border-radius: 9999px;
+      background: #22c55e;
+      box-shadow: 0 0 8px 0 rgba(34, 197, 94, 0.85);
+      animation: discordLed 2.2s infinite ease-in-out;
+    }
+
+    @keyframes discordLed {
+      0% {
+        opacity: 0.9;
+        transform: scale(1);
+        box-shadow: 0 0 8px 0 rgba(34, 197, 94, 0.9);
+      }
+
+      50% {
+        opacity: 0.6;
+        transform: scale(0.9);
+        box-shadow: 0 0 3px 0 rgba(34, 197, 94, 0.5);
+      }
+
+      100% {
+        opacity: 0.9;
+        transform: scale(1);
+        box-shadow: 0 0 8px 0 rgba(34, 197, 94, 0.9);
+      }
+    }
+
+    .card-tilt {
+      transition: transform 200ms ease-out, box-shadow 200ms ease-out, border-color 200ms ease-out;
+    }
+
+    .card-tilt:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .steam-btn {
+      position: relative;
+      overflow: hidden;
+      transition: background-color 500ms cubic-bezier(0.22, 0.61, 0.36, 1), color 500ms cubic-bezier(0.22, 0.61, 0.36, 1), padding-left 500ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+
+    .steam-btn::before {
+      content: '';
+      position: absolute;
+      left: 9px;
+      top: 50%;
+      width: 16px;
+      height: 16px;
+      transform: translateY(-50%) scale(0.4);
+      opacity: 0;
+      background-image: url('Images/steamlogo.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: opacity 220ms ease-out, transform 220ms ease-out;
+    }
+
+    .steam-btn span {
+      display: inline-block;
+      transition: transform 500ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .steam-btn:hover {
+      background-color: #1b9df0 !important;
+      /* Tailwind bg-white hover'ını ez */
+      color: #f9fafb !important;
+      padding-left: 1.5rem;
+      /* hem soldan hem yazıdan boşluğu azalt */
+    }
+
+    .steam-btn:hover::before {
+      transition-delay: 150ms;
+      opacity: 1;
+      transform: translateY(-50%) scale(1);
+    }
+
+    .steam-btn:hover span {
+      transform: translateX(6px);
+    }
+
+    .presskit-btn {
+      position: relative;
+      overflow: hidden;
+      transition: background-color 500ms cubic-bezier(0.22, 0.61, 0.36, 1), color 500ms cubic-bezier(0.22, 0.61, 0.36, 1), padding-left 500ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+
+    .presskit-btn::before {
+      content: '💾';
+      position: absolute;
+      left: 8px;
+      top: calc(50% - 1px);
+      transform: translateY(-50%) scale(1);
+      opacity: 0;
+      font-size: 13px;
+      line-height: 1;
+      transition: opacity 220ms ease-out, transform 220ms ease-out;
+    }
+
+    .presskit-btn span {
+      display: inline-block;
+      transition: transform 500ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .presskit-btn:hover {
+      background-color: #21bd6f !important;
+      color: #363636 !important;
+      padding-left: 1.4rem;
+    }
+
+    .presskit-btn:hover::before {
+      transition-delay: 150ms;
+      opacity: 1;
+      transform: translateY(-50%) scale(1);
+    }
+
+    .presskit-btn:hover span {
+      transform: translateX(6px);
+    }
   </style>
 </head>
+
 <body class="h-full bg-neutral-950 text-neutral-100">
   <!-- Nav -->
   <header class="sticky top-0 z-50 glass border-b border-white/10">
@@ -42,17 +191,21 @@
   <!-- Hero -->
   <section class="relative overflow-hidden">
     <div class="absolute inset-0 -z-10 opacity-30" aria-hidden="true">
-      <div class="absolute -top-1/2 left-1/2 h-[80vh] w-[80vh] -translate-x-1/2 rounded-full blur-[100px]" style="background: radial-gradient(circle at center, rgba(139,92,246,.6), rgba(34,211,238,.25) 60%, transparent 70%)"></div>
+      <div class="absolute -top-1/2 left-1/2 h-[80vh] w-[80vh] -translate-x-1/2 rounded-full blur-[100px]"
+        style="background: radial-gradient(circle at center, rgba(139,92,246,.6), rgba(34,211,238,.25) 60%, transparent 70%)">
+      </div>
     </div>
     <div class="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-24 text-center">
       <h1 class="text-3xl sm:text-5xl font-black leading-tight">
         Create the Way
         <span class="block gradient-text">Turning Ideas Into Play</span>
       </h1>
-      <p class="mt-4 text-neutral-300 max-w-xl mx-auto">At Crow Interactive, we develop independent PC games of all kinds. Explore our games below.
-</p>
+      <p class="mt-4 text-neutral-300 max-w-xl mx-auto">At Crow Interactive, we develop independent PC games of all
+        kinds. Explore our games below.
+      </p>
       <div class="mt-8 flex items-center justify-center gap-3">
-        <a href="#games" class="px-4 py-2 rounded-xl bg-white text-neutral-900 font-semibold hover:bg-white/90">See Games</a>
+        <a href="#games" class="px-4 py-2 rounded-xl bg-white text-neutral-900 font-semibold hover:bg-white/90">See
+          Games</a>
         <a href="#contact" class="px-4 py-2 rounded-xl border border-white/20 hover:border-white/40">Contact</a>
       </div>
     </div>
@@ -67,77 +220,97 @@
 
     <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <!-- VMBS Card -->
-      <article class="group rounded-2xl overflow-hidden border border-white/10 glass flex flex-col">
+      <article class="group rounded-2xl overflow-hidden border border-white/10 glass flex flex-col card-tilt">
         <div class="aspect-[16/7.5] bg-neutral-900">
-          <img src="Images/vmbs.jpg" alt="Vending Machine Business Simulator" class="h-full w-full object-cover object-center opacity-90 group-hover:opacity-100 transition sm:rounded-none rounded-b-2xl" />
+          <img src="Images/vmbs.jpg" alt="Vending Machine Business Simulator"
+            class="h-full w-full object-cover object-center opacity-90 group-hover:opacity-100 transition sm:rounded-none rounded-b-2xl" />
         </div>
         <div class="p-5 flex-1 flex flex-col">
           <h3 class="text-lg font-semibold">Vending Machine Business Simulator</h3>
           <p class="mt-2 text-sm text-neutral-300">Build your own vending empire. Buy, place, stock, and expand.</p>
-          <p class="mt-2 text-sm text-neutral-400">Rent locations, set up your product supply chain, optimize prices, manage inventory based on demand, and track growth with analytics.</p>
+          <p class="mt-2 text-sm text-neutral-400">Rent locations, set up your product supply chain, optimize prices,
+            manage inventory based on demand, and track growth with analytics.</p>
           <div class="mt-4 flex flex-wrap items-center gap-3">
-            <a href="https://store.steampowered.com/app/2998750" target="_blank" rel="noreferrer" class="px-3 py-1.5 rounded-lg bg-white text-neutral-900 text-sm font-semibold hover:bg-white/90">Steam</a>
-              <a href="https://drive.google.com/drive/folders/1E_ccGgnvyawlSk2Wu53kXjSkAEf6eoaK" target="_blank" rel="noreferrer" class="px-3 py-1.5 rounded-lg bg-white text-neutral-900 text-sm font-semibold hover:bg-white/90">Press kit</a>
+            <a href="https://store.steampowered.com/app/2998750" target="_blank" rel="noreferrer"
+              class="px-3 py-1.5 rounded-lg bg-white text-neutral-900 text-sm font-semibold hover:bg-white/90 steam-btn"><span>Steam</span></a>
+            <a href="https://drive.google.com/drive/folders/1E_ccGgnvyawlSk2Wu53kXjSkAEf6eoaK" target="_blank"
+              rel="noreferrer"
+              class="px-3 py-1.5 rounded-lg bg-white text-neutral-900 text-sm font-semibold hover:bg-white/90 presskit-btn"><span>Press
+                kit</span></a>
           </div>
         </div>
       </article>
 
-      <!-- Kraken's Bar Card -->
-      <article class="group rounded-2xl overflow-hidden border border-white/10 glass flex flex-col">
-        <div class="aspect-[16/7.5] bg-neutral-900">
-          <img src="Images/kraken.jpg" alt="Kraken's Bar" class="h-full w-full object-cover object-center opacity-90 group-hover:opacity-100 transition sm:rounded-none rounded-b-2xl" />
-        </div>
-        <div class="p-5 flex-1 flex flex-col">
-          <h3 class="text-lg font-semibold">Kraken's Bar</h3>
-          <p class="mt-2 text-sm text-neutral-300">4-player online card/party game. Negotiate, bluff, and survive.</p>
-          <p class="mt-2 text-sm text-neutral-400">Fast rounds, tense duels, and unexpected moves. Form alliances or betray through voice and text chat.</p>
-          <div class="mt-4 flex flex-wrap items-center gap-3">
-            <a href="https://store.steampowered.com/app/3861910" target="_blank" rel="noreferrer" class="px-3 py-1.5 rounded-lg bg-white text-neutral-900 text-sm font-semibold hover:bg-white/90">Steam</a>
-             <a href="#games"  rel="noreferrer" class="px-3 py-1.5 rounded-xl border border-white/20 hover:border-white/40">Press kit available soon.</a>
-          </div>
-        </div>
-      </article>
 
-      <!-- AI Startup Simulator Card -->
-      <article class="group rounded-2xl overflow-hidden border border-white/10 glass flex flex-col">
+
+      <!-- GSS -->
+      <article class="group rounded-2xl overflow-hidden border border-white/10 glass flex flex-col card-tilt">
         <div class="aspect-[16/7.5] bg-neutral-900">
-          <img src="Images/gss.jpg" alt="AI Startup Simulator" class="h-full w-full object-cover object-center opacity-90 group-hover:opacity-100 transition sm:rounded-none rounded-b-2xl" />
+          <img src="Images/gss.jpg" alt="GSS"
+            class="h-full w-full object-cover object-center opacity-90 group-hover:opacity-100 transition sm:rounded-none rounded-b-2xl" />
         </div>
         <div class="p-5 flex-1 flex flex-col">
           <h3 class="text-lg font-semibold">Game Store Simulator</h3>
-          <p class="mt-2 text-sm text-neutral-300">Manage your own game store. Buy stock, set prices, and attract customers.</p>
-          <p class="mt-2 text-sm text-neutral-400">Run your own shop, trade smart, manage stock, and turn your store into a player’s favorite spot.</p>
+          <p class="mt-2 text-sm text-neutral-300">Manage your own game store. Buy stock, set prices, and attract
+            customers.</p>
+          <p class="mt-2 text-sm text-neutral-400">Run your own shop, trade smart, manage stock, and turn your store
+            into a player’s favorite spot.</p>
           <div class="mt-4 flex flex-wrap items-center gap-3">
-           <a href="https://store.steampowered.com/app/2598930" target="_blank" rel="noreferrer" class="px-3 py-1.5 rounded-lg bg-white text-neutral-900 text-sm font-semibold hover:bg-white/90">Steam</a>
-               
+            <a href="https://store.steampowered.com/app/2598930" target="_blank" rel="noreferrer"
+              class="px-3 py-1.5 rounded-lg bg-white text-neutral-900 text-sm font-semibold hover:bg-white/90 steam-btn"><span>Steam</span></a>
           </div>
         </div>
       </article>
+
+      <!-- TBA -->
+      <article class="group rounded-2xl overflow-hidden border border-white/10 glass flex flex-col card-tilt">
+        <div class="aspect-[16/7.5] bg-neutral-900">
+          <img src="Images/TBA.jpg" alt="TBA"
+            class="h-full w-full object-cover object-center opacity-90 group-hover:opacity-100 transition sm:rounded-none rounded-b-2xl" />
+        </div>
+        <div class="p-5 flex-1 flex flex-col">
+          <h3 class="text-lg font-semibold">To be announced</h3>
+          <p class="mt-2 text-sm text-neutral-300"> </p>
+          <p class="mt-2 text-sm text-neutral-400"> </p>
+          <div class="mt-4 flex flex-wrap items-center gap-3">
+            <!-- <a href="https://store.steampowered.com/app/3861910" target="_blank" rel="noreferrer" class="px-3 py-1.5 rounded-lg bg-white text-neutral-900 text-sm font-semibold hover:bg-white/90 steam-btn"><span>Steam</span></a>
+             <a href="#games"  rel="noreferrer" class="px-3 py-1.5 rounded-xl border border-white/20 hover:border-white/40 presskit-btn"><span>Press kit soon</span></a> -->
+          </div>
+        </div>
+      </article>
+
     </div>
   </section>
 
   <!-- About -->
   <section id="about" class="mx-auto max-w-6xl px-4 sm:px-6 py-12 sm:py-20">
     <h2 class="text-2xl sm:text-3xl font-bold">About</h2>
-    <p class="mt-4 text-neutral-300 max-w-3xl">Crow Interactive is an independent game studio based in Turkey. We turn ideas into fun games across all genres, focusing on simple and engaging experiences. Using the latest technology of the Unity game engine, we shape our games together with our players through continuous feedback.</p>
+    <p class="mt-4 text-neutral-300 max-w-3xl">Crow Interactive is an independent game studio based in Turkey. We turn
+      ideas into fun games across all genres, focusing on simple and engaging experiences. Using the latest technology
+      of the Unity game engine, we shape our games together with our players through continuous feedback.</p>
   </section>
 
   <!-- Contact -->
   <section id="contact" class="mx-auto max-w-6xl px-4 sm:px-6 py-12 sm:py-20">
     <h2 class="text-2xl sm:text-3xl font-bold">Contact</h2>
-    <p class="mt-4 text-neutral-300">For partnerships, press keys, and support, please reach out through a single channel.</p>
+    <p class="mt-4 text-neutral-300">For partnerships, press keys, and support, please reach out through a single
+      channel.</p>
     <div class="mt-6 flex flex-wrap items-center gap-3">
-      <a href="mailto:contact@crowinteractivegames.com" class="px-4 py-2 rounded-xl bg-white text-neutral-900 font-semibold hover:bg-white/90">contact@crowinteractivegames.com</a>
-      <a href="https://store.steampowered.com/developer/crow" target="_blank" rel="noreferrer" class="px-4 py-2 rounded-xl border border-white/20 hover:border-white/40">Publisher Page</a>
-      <a href="https://discord.gg/nUbnxYNqUr" target="_blank" rel="noreferrer" class="px-4 py-2 rounded-xl border border-white/20 hover:border-white/40">Join Discord</a>
+      <a href="mailto:contact@crowinteractivegames.com"
+        class="px-4 py-2 rounded-xl bg-white text-neutral-900 font-semibold hover:bg-white/90">contact@crowinteractivegames.com</a>
+      <a href="https://store.steampowered.com/developer/crow" target="_blank" rel="noreferrer"
+        class="px-4 py-2 rounded-xl border border-white/20 hover:border-white/40">Publisher Page</a>
+      <a href="https://discord.gg/nUbnxYNqUr" target="_blank" rel="noreferrer"
+        class="px-4 py-2 rounded-xl border border-white/20 hover:border-white/40 discord-pulse">Join Discord</a>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="border-t border-white/10">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 py-8 text-sm text-neutral-400 flex flex-col sm:flex-row items-center justify-between gap-3">
+    <div
+      class="mx-auto max-w-6xl px-4 sm:px-6 py-8 text-sm text-neutral-400 flex flex-col sm:flex-row items-center justify-between gap-3">
       <p>© <span id="y"></span> Crow Interactive. All rights reserved.
-</p>
+      </p>
       <div class="flex items-center gap-4">
         <a class="hover:text-neutral-200" href="#games">Games</a>
         <a class="hover:text-neutral-200" href="#about">About</a>
@@ -146,16 +319,17 @@
     </div>
   </footer>
 
-  
+
   <script>
-    (function() {
+    (function () {
       var yEl = document.getElementById('y');
       if (yEl) yEl.textContent = new Date().getFullYear();
       var mb = document.getElementById('menuBtn');
       var mn = document.getElementById('mobileNav');
-      if (mb && mn) mb.addEventListener('click', function(){ mn.classList.toggle('hidden'); });
+      if (mb && mn) mb.addEventListener('click', function () { mn.classList.toggle('hidden'); });
     })();
   </script>
 
 </body>
+
 </html>
