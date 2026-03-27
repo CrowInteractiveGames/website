@@ -1,31 +1,53 @@
 <!DOCTYPE html>
-<html lang="tr" class="h-full scroll-smooth">
+<html lang="en" class="h-full scroll-smooth">
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Crow Interactive</title>
-  <meta name="description" content="Crow Interactive oyunlarının resmi tanıtım sayfası." />
+  <meta name="description"
+    content="Crow Interactive — Independent game studio. Home of Corner Market, Vending Machine Business Simulator, and Game Store Simulator." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#FFF8F0',
+            peach: '#FFE8D6',
+            apricot: '#F4A261',
+            tangerine: '#E76F51',
+            cocoa: '#3D2C2C',
+            latte: '#6B4F4F',
+            warmwhite: '#FFFDF9',
+          },
+          fontFamily: {
+            fredoka: ['Fredoka', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
   <style>
     :root {
-      color-scheme: dark;
+      color-scheme: light;
     }
 
     body {
-      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji';
+      font-family: 'Fredoka', system-ui, sans-serif;
     }
 
-    .glass {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
-      backdrop-filter: blur(8px);
+    .cozy-glass {
+      background: rgba(255, 248, 240, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
 
     .gradient-text {
-      background: linear-gradient(90deg, #9805fa, #dd05fa);
+      background: linear-gradient(135deg, #E76F51, #F4A261);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -75,8 +97,8 @@
 
     .card-tilt:hover {
       transform: translateY(-4px);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
-      border-color: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 12px 32px rgba(107, 79, 79, 0.15);
+      border-color: rgba(244, 162, 97, 0.4);
     }
 
     .steam-btn {
@@ -108,10 +130,8 @@
 
     .steam-btn:hover {
       background-color: #1b9df0 !important;
-      /* Tailwind bg-white hover'ını ez */
       color: #f9fafb !important;
       padding-left: 1.5rem;
-      /* hem soldan hem yazıdan boşluğu azalt */
     }
 
     .steam-btn:hover::before {
@@ -148,8 +168,8 @@
     }
 
     .presskit-btn:hover {
-      background-color: #21bd6f !important;
-      color: #363636 !important;
+      background-color: #F4A261 !important;
+      color: #3D2C2C !important;
       padding-left: 1.4rem;
     }
 
@@ -162,130 +182,155 @@
     .presskit-btn:hover span {
       transform: translateX(6px);
     }
+
+    .hero-overlay {
+      background: linear-gradient(to bottom,
+          rgba(255, 248, 240, 0.1) 0%,
+          rgba(255, 248, 240, 0.35) 50%,
+          rgba(255, 248, 240, 1) 100%);
+    }
+
+    @keyframes floatUp {
+      0% {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-float-up {
+      animation: floatUp 0.8s ease-out both;
+    }
+
+    .animate-float-up-delay {
+      animation: floatUp 0.8s ease-out 0.2s both;
+    }
+
+    .animate-float-up-delay2 {
+      animation: floatUp 0.8s ease-out 0.4s both;
+    }
   </style>
 </head>
 
-<body class="h-full bg-neutral-950 text-neutral-100">
+<body class="h-full bg-cream text-cocoa font-fredoka">
   <!-- Nav -->
-  <header class="sticky top-0 z-50 glass border-b border-white/10">
+  <header class="sticky top-0 z-50 cozy-glass border-b border-apricot/20">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 py-3 flex items-center justify-between">
-      <a href="#" class="text-lg font-black tracking-tight gradient-text">Crow Interactive</a>
-      <button id="menuBtn" class="sm:hidden p-2 rounded-lg border border-white/20">Menu</button>
-      <nav class="hidden sm:flex items-center gap-6 text-sm">
-        <a href="#games" class="hover:text-white/90">Games</a>
-        <a href="#about" class="hover:text-white/90">About</a>
-        <a href="#contact" class="hover:text-white/90">Contact</a>
+      <a href="#" class="text-lg font-bold tracking-tight gradient-text">Crow Interactive</a>
+      <button id="menuBtn"
+        class="sm:hidden p-2 rounded-lg border border-apricot/30 text-cocoa hover:bg-peach/50">Menu</button>
+      <nav class="hidden sm:flex items-center gap-6 text-sm font-medium">
+        <a href="#games" class="text-latte hover:text-cocoa transition-colors">Games</a>
+        <a href="#about" class="text-latte hover:text-cocoa transition-colors">About</a>
+        <a href="#contact" class="text-latte hover:text-cocoa transition-colors">Contact</a>
       </nav>
     </div>
   </header>
 
   <!-- Mobile Nav -->
-  <nav id="mobileNav" class="sm:hidden hidden border-b border-white/10 glass">
-    <div class="mx-auto max-w-6xl px-4 py-3 flex flex-col gap-3 text-sm">
-      <a href="#games">Oyunlar</a>
-      <a href="#about">Hakkında</a>
-      <a href="#contact">İletişim</a>
+  <nav id="mobileNav" class="sm:hidden hidden border-b border-apricot/20 cozy-glass">
+    <div class="mx-auto max-w-6xl px-4 py-3 flex flex-col gap-3 text-sm font-medium text-latte">
+      <a href="#games" class="hover:text-cocoa">Games</a>
+      <a href="#about" class="hover:text-cocoa">About</a>
+      <a href="#contact" class="hover:text-cocoa">Contact</a>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section class="relative overflow-hidden">
-    <div class="absolute inset-0 -z-10 opacity-30" aria-hidden="true">
-      <div class="absolute -top-1/2 left-1/2 h-[80vh] w-[80vh] -translate-x-1/2 rounded-full blur-[100px]"
-        style="background: radial-gradient(circle at center, rgba(139,92,246,.6), rgba(34,211,238,.25) 60%, transparent 70%)">
-      </div>
+  <!-- Corner Market Hero -->
+  <section class="relative overflow-hidden min-h-[70vh] sm:min-h-[80vh] flex items-end">
+    <img src="Images/corner_market_hero.png" alt="Corner Market"
+      class="absolute inset-0 w-full h-full object-cover object-center" />
+    <div class="hero-overlay absolute inset-0"></div>
+
+    <!-- Gameplay preview video -->
+    <div class="hidden sm:block absolute z-[5] top-[12%] left-1/2 -translate-x-1/2 w-[53%] max-w-[700px]">
+      <video autoplay loop muted playsinline
+        class="w-full rounded-2xl"
+        style="-webkit-mask-image: radial-gradient(ellipse 95% 90% at center, black 60%, transparent 90%); mask-image: radial-gradient(ellipse 95% 90% at center, black 60%, transparent 90%);"
+        src="Images/corner_market_preview.mp4"></video>
     </div>
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-24 text-center">
-      <h1 class="text-3xl sm:text-5xl font-black leading-tight">
-        Create the Way
-        <span class="block gradient-text">Turning Ideas Into Play</span>
-      </h1>
-      <p class="mt-4 text-neutral-300 max-w-xl mx-auto">At Crow Interactive, we develop independent PC games of all
-        kinds. Explore our games below.
-      </p>
-      <div class="mt-8 flex items-center justify-center gap-3">
-        <a href="#games" class="px-4 py-2 rounded-xl bg-white text-neutral-900 font-semibold hover:bg-white/90">See
-          Games</a>
-        <a href="#contact" class="px-4 py-2 rounded-xl border border-white/20 hover:border-white/40">Contact</a>
+
+    <div class="relative z-10 w-full mx-auto max-w-6xl px-4 sm:px-6 pb-10 sm:pb-16">
+      <div class="max-w-2xl">
+        <img src="Images/corner_market_logo.png" alt="Corner Market Logo"
+          class="h-16 sm:h-24 w-auto mb-5 drop-shadow-lg animate-float-up" />
+        <p class="text-base sm:text-lg text-cocoa/80 max-w-lg animate-float-up-delay">
+          A relaxing idle market simulator that sits at the corner of your screen while you do other things.
+        </p>
+        <div class="mt-6 flex flex-wrap items-center gap-3 animate-float-up-delay2">
+          <a href="https://store.steampowered.com/app/4302940" target="_blank" rel="noreferrer"
+            class="px-5 py-2.5 rounded-xl bg-tangerine text-warmwhite font-semibold hover:bg-tangerine/90 transition-colors steam-btn"><span>Wishlist
+              on Steam</span></a>
+          <a href="https://drive.google.com/drive/folders/11fc_N7N8_fo6dFhyuxJiKEgt9C_92LCf?usp=sharing"
+            target="_blank" rel="noreferrer"
+            class="px-5 py-2.5 rounded-xl bg-warmwhite text-cocoa font-semibold border border-apricot/30 hover:border-apricot/60 transition-colors presskit-btn"><span>Press
+              Kit</span></a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Games -->
-  <section id="games" class="mx-auto max-w-6xl px-4 sm:px-6 py-12 sm:py-20">
+  <!-- Other Games -->
+  <section id="games" class="mx-auto max-w-6xl px-4 sm:px-6 py-14 sm:py-20">
     <div class="flex items-end justify-between gap-4">
-      <h2 class="text-2xl sm:text-3xl font-bold">Games</h2>
-      <span class="text-xs text-neutral-400">Steam links and press kits below</span>
+      <h2 class="text-2xl sm:text-3xl font-bold">Our Other Games</h2>
+      <span class="text-xs text-latte/70">Steam links and press kits below</span>
     </div>
 
-    <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl">
       <!-- VMBS Card -->
-      <article class="group rounded-2xl overflow-hidden border border-white/10 glass flex flex-col card-tilt">
-        <div class="aspect-[16/7.5] bg-neutral-900">
+      <article
+        class="group rounded-2xl overflow-hidden border border-apricot/15 bg-warmwhite flex flex-col card-tilt shadow-sm">
+        <div class="aspect-[16/7.5] bg-peach/30">
           <img src="Images/vmbs.jpg" alt="Vending Machine Business Simulator"
-            class="h-full w-full object-cover object-center opacity-90 group-hover:opacity-100 transition sm:rounded-none rounded-b-2xl" />
+            class="h-full w-full object-cover object-center opacity-95 group-hover:opacity-100 transition" />
         </div>
         <div class="p-5 flex-1 flex flex-col">
-          <h3 class="text-lg font-semibold">Vending Machine Business Simulator</h3>
-          <p class="mt-2 text-sm text-neutral-300">Build your own vending empire. Buy, place, stock, and expand.</p>
-          <p class="mt-2 text-sm text-neutral-400">Rent locations, set up your product supply chain, optimize prices,
+          <h3 class="text-lg font-semibold text-cocoa">Vending Machine Business Simulator</h3>
+          <p class="mt-2 text-sm text-latte">Build your own vending empire. Buy, place, stock, and expand.</p>
+          <p class="mt-2 text-sm text-latte/70">Rent locations, set up your product supply chain, optimize prices,
             manage inventory based on demand, and track growth with analytics.</p>
           <div class="mt-4 flex flex-wrap items-center gap-3">
             <a href="https://store.steampowered.com/app/2998750" target="_blank" rel="noreferrer"
-              class="px-3 py-1.5 rounded-lg bg-white text-neutral-900 text-sm font-semibold hover:bg-white/90 steam-btn"><span>Steam</span></a>
+              class="px-3 py-1.5 rounded-lg bg-tangerine text-warmwhite text-sm font-semibold steam-btn"><span>Steam</span></a>
             <a href="https://drive.google.com/drive/folders/1E_ccGgnvyawlSk2Wu53kXjSkAEf6eoaK" target="_blank"
               rel="noreferrer"
-              class="px-3 py-1.5 rounded-lg bg-white text-neutral-900 text-sm font-semibold hover:bg-white/90 presskit-btn"><span>Press
+              class="px-3 py-1.5 rounded-lg bg-peach text-cocoa text-sm font-semibold presskit-btn"><span>Press
                 kit</span></a>
           </div>
         </div>
       </article>
 
-
-
-      <!-- GSS -->
-      <article class="group rounded-2xl overflow-hidden border border-white/10 glass flex flex-col card-tilt">
-        <div class="aspect-[16/7.5] bg-neutral-900">
-          <img src="Images/gss.jpg" alt="GSS"
-            class="h-full w-full object-cover object-center opacity-90 group-hover:opacity-100 transition sm:rounded-none rounded-b-2xl" />
+      <!-- GSS Card -->
+      <article
+        class="group rounded-2xl overflow-hidden border border-apricot/15 bg-warmwhite flex flex-col card-tilt shadow-sm">
+        <div class="aspect-[16/7.5] bg-peach/30">
+          <img src="Images/gss.jpg" alt="Game Store Simulator"
+            class="h-full w-full object-cover object-center opacity-95 group-hover:opacity-100 transition" />
         </div>
         <div class="p-5 flex-1 flex flex-col">
-          <h3 class="text-lg font-semibold">Game Store Simulator</h3>
-          <p class="mt-2 text-sm text-neutral-300">Manage your own game store. Buy stock, set prices, and attract
+          <h3 class="text-lg font-semibold text-cocoa">Game Store Simulator</h3>
+          <p class="mt-2 text-sm text-latte">Manage your own game store. Buy stock, set prices, and attract
             customers.</p>
-          <p class="mt-2 text-sm text-neutral-400">Run your own shop, trade smart, manage stock, and turn your store
-            into a player’s favorite spot.</p>
+          <p class="mt-2 text-sm text-latte/70">Run your own shop, trade smart, manage stock, and turn your store
+            into a player's favorite spot.</p>
           <div class="mt-4 flex flex-wrap items-center gap-3">
             <a href="https://store.steampowered.com/app/2598930" target="_blank" rel="noreferrer"
-              class="px-3 py-1.5 rounded-lg bg-white text-neutral-900 text-sm font-semibold hover:bg-white/90 steam-btn"><span>Steam</span></a>
+              class="px-3 py-1.5 rounded-lg bg-tangerine text-warmwhite text-sm font-semibold steam-btn"><span>Steam</span></a>
           </div>
         </div>
       </article>
-
-      <!-- TBA -->
-      <article class="group rounded-2xl overflow-hidden border border-white/10 glass flex flex-col card-tilt">
-        <div class="aspect-[16/7.5] bg-neutral-900">
-          <img src="Images/TBA.jpg" alt="TBA"
-            class="h-full w-full object-cover object-center opacity-90 group-hover:opacity-100 transition sm:rounded-none rounded-b-2xl" />
-        </div>
-        <div class="p-5 flex-1 flex flex-col">
-          <h3 class="text-lg font-semibold">To be announced</h3>
-          <p class="mt-2 text-sm text-neutral-300"> </p>
-          <p class="mt-2 text-sm text-neutral-400"> </p>
-          <div class="mt-4 flex flex-wrap items-center gap-3">
-            <!-- <a href="https://store.steampowered.com/app/3861910" target="_blank" rel="noreferrer" class="px-3 py-1.5 rounded-lg bg-white text-neutral-900 text-sm font-semibold hover:bg-white/90 steam-btn"><span>Steam</span></a>
-             <a href="#games"  rel="noreferrer" class="px-3 py-1.5 rounded-xl border border-white/20 hover:border-white/40 presskit-btn"><span>Press kit soon</span></a> -->
-          </div>
-        </div>
-      </article>
-
     </div>
   </section>
 
   <!-- About -->
   <section id="about" class="mx-auto max-w-6xl px-4 sm:px-6 py-12 sm:py-20">
     <h2 class="text-2xl sm:text-3xl font-bold">About</h2>
-    <p class="mt-4 text-neutral-300 max-w-3xl">Crow Interactive is an independent game studio based in Turkey. We turn
+    <p class="mt-4 text-latte max-w-3xl">Crow Interactive is an independent game studio based in Turkey. We turn
       ideas into fun games across all genres, focusing on simple and engaging experiences. Using the latest technology
       of the Unity game engine, we shape our games together with our players through continuous feedback.</p>
   </section>
@@ -293,32 +338,32 @@
   <!-- Contact -->
   <section id="contact" class="mx-auto max-w-6xl px-4 sm:px-6 py-12 sm:py-20">
     <h2 class="text-2xl sm:text-3xl font-bold">Contact</h2>
-    <p class="mt-4 text-neutral-300">For partnerships, press keys, and support, please reach out through a single
+    <p class="mt-4 text-latte">For partnerships, press kits, and support, please reach out through a single
       channel.</p>
     <div class="mt-6 flex flex-wrap items-center gap-3">
       <a href="mailto:contact@crowinteractivegames.com"
-        class="px-4 py-2 rounded-xl bg-white text-neutral-900 font-semibold hover:bg-white/90">contact@crowinteractivegames.com</a>
+        class="px-4 py-2 rounded-xl bg-tangerine text-warmwhite font-semibold hover:bg-tangerine/90 transition-colors">contact@crowinteractivegames.com</a>
       <a href="https://store.steampowered.com/developer/crow" target="_blank" rel="noreferrer"
-        class="px-4 py-2 rounded-xl border border-white/20 hover:border-white/40">Publisher Page</a>
+        class="px-4 py-2 rounded-xl border border-apricot/30 text-cocoa hover:border-apricot/60 transition-colors">Publisher
+        Page</a>
       <a href="https://discord.gg/nUbnxYNqUr" target="_blank" rel="noreferrer"
-        class="px-4 py-2 rounded-xl border border-white/20 hover:border-white/40 discord-pulse">Join Discord</a>
+        class="px-4 py-2 rounded-xl border border-apricot/30 text-cocoa hover:border-apricot/60 transition-colors discord-pulse">Join
+        Discord</a>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="border-t border-white/10">
+  <footer class="border-t border-apricot/15">
     <div
-      class="mx-auto max-w-6xl px-4 sm:px-6 py-8 text-sm text-neutral-400 flex flex-col sm:flex-row items-center justify-between gap-3">
-      <p>© <span id="y"></span> Crow Interactive. All rights reserved.
-      </p>
+      class="mx-auto max-w-6xl px-4 sm:px-6 py-8 text-sm text-latte/70 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>&copy; <span id="y"></span> Crow Interactive. All rights reserved.</p>
       <div class="flex items-center gap-4">
-        <a class="hover:text-neutral-200" href="#games">Games</a>
-        <a class="hover:text-neutral-200" href="#about">About</a>
-        <a class="hover:text-neutral-200" href="#contact">Contact</a>
+        <a class="hover:text-cocoa transition-colors" href="#games">Games</a>
+        <a class="hover:text-cocoa transition-colors" href="#about">About</a>
+        <a class="hover:text-cocoa transition-colors" href="#contact">Contact</a>
       </div>
     </div>
   </footer>
-
 
   <script>
     (function () {
