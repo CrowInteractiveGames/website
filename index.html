@@ -1,781 +1,585 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full scroll-smooth">
+<html lang="en" class="scroll-smooth" data-theme="dark">
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Crow Interactive</title>
-  <meta name="description" content="Corner Market Press Kit — A relaxing idle market simulator by Crow Interactive. Screenshots, videos, logos, and press information." />
-  <meta property="og:title" content="Corner Market — Press Kit" />
-  <meta property="og:description" content="A relaxing idle market simulator that sits at the corner of your screen while you do other things." />
-  <meta property="og:image" content="Images/storePageAssets/library_hero.png" />
+  <title>Crow Interactive · Independent Game Studio</title>
+  <meta name="description" content="Crow Interactive is an independent game studio from Turkey building compact simulation and idle games for PC. Corner Market, Fisher Idle, Game Store Simulator, Vending Machine Business Simulator, Homeless Life Simulator." />
+  <link rel="canonical" href="https://crowinteractivegames.com/" />
+
+  <meta property="og:site_name" content="Crow Interactive" />
+  <meta property="og:title" content="Crow Interactive · Independent Game Studio" />
+  <meta property="og:description" content="Compact simulation and idle games for PC. Five titles on Steam." />
+  <meta property="og:image" content="https://crowinteractivegames.com/Images/brand/splash-dark-1920.png" />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://crowinteractivegames.com/" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Corner Market — Press Kit" />
-  <meta name="twitter:description" content="A relaxing idle market simulator by Crow Interactive." />
-  <meta name="twitter:image" content="Images/storePageAssets/library_hero.png" />
+  <meta name="twitter:title" content="Crow Interactive · Independent Game Studio" />
+  <meta name="twitter:description" content="Compact simulation and idle games for PC. Five titles on Steam." />
+  <meta name="twitter:image" content="https://crowinteractivegames.com/Images/brand/splash-dark-1920.png" />
+  <meta name="theme-color" content="#050505" />
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "VideoGame",
-    "name": "Corner Market",
-    "description": "A relaxing idle market simulator that sits at the corner of your screen while you do other things.",
-    "image": "Images/storePageAssets/library_hero.png",
-    "genre": ["Idle", "Simulation", "Management"],
-    "gamePlatform": "PC",
-    "operatingSystem": "Windows 10",
-    "applicationCategory": "Game",
-    "author": {
-      "@type": "Organization",
-      "name": "Tiny Orbit"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Crow Interactive",
-      "url": "https://store.steampowered.com/developer/crow"
-    },
-    "offers": {
-      "@type": "Offer",
-      "availability": "https://schema.org/PreOrder",
-      "url": "https://store.steampowered.com/app/4302940"
-    },
-    "inLanguage": ["en","fr","it","de","es","ja","ko","pl","pt-BR","pt-PT","ru","zh-Hans","es-419","sv","th","zh-Hant","tr"]
+    "@type": "Organization",
+    "name": "Crow Interactive",
+    "url": "https://crowinteractivegames.com/",
+    "logo": "https://crowinteractivegames.com/Images/brand/profile-dark-512.png",
+    "email": "contact@crowinteractivegames.com",
+    "foundingLocation": { "@type": "Country", "name": "Turkey" },
+    "sameAs": [
+      "https://store.steampowered.com/developer/crow",
+      "https://discord.gg/nUbnxYNqUr",
+      "https://www.youtube.com/@CrowInteractive",
+      "https://x.com/Bedirhan_T0prak"
+    ]
   }
   </script>
-  <link rel="icon" type="image/png" href="Images/favicon.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Games by Crow Interactive",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "item": { "@type": "VideoGame", "name": "Corner Market", "url": "https://store.steampowered.com/app/4302940/", "gamePlatform": "PC" } },
+      { "@type": "ListItem", "position": 2, "item": { "@type": "VideoGame", "name": "Fisher Idle", "url": "https://store.steampowered.com/app/3449840/", "gamePlatform": "PC" } },
+      { "@type": "ListItem", "position": 3, "item": { "@type": "VideoGame", "name": "Game Store Simulator", "url": "https://store.steampowered.com/app/2598930/", "gamePlatform": "PC" } },
+      { "@type": "ListItem", "position": 4, "item": { "@type": "VideoGame", "name": "Vending Machine Business Simulator", "url": "https://store.steampowered.com/app/2998750/", "gamePlatform": "PC" } },
+      { "@type": "ListItem", "position": 5, "item": { "@type": "VideoGame", "name": "Homeless Life Simulator", "url": "https://store.steampowered.com/app/3845420/", "gamePlatform": "PC" } }
+    ]
+  }
+  </script>
+
+  <link rel="icon" type="image/png" href="Images/brand/favicon-256.png" />
+  <link rel="apple-touch-icon" href="Images/brand/profile-dark-512.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            cream: '#FFF8F0',
-            peach: '#FFE8D6',
-            apricot: '#F4A261',
-            tangerine: '#E76F51',
-            cocoa: '#3D2C2C',
-            latte: '#6B4F4F',
-            warmwhite: '#FFFDF9',
-          },
-          fontFamily: {
-            fredoka: ['Fredoka', 'system-ui', 'sans-serif'],
-          }
-        }
-      }
-    }
+    // Apply stored theme before first paint to avoid a flash, and mark that
+    // scripting is available so the scroll-reveal styles can take effect.
+    (function () {
+      document.documentElement.classList.add('js');
+      try {
+        var t = localStorage.getItem('crow-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
   </script>
+
   <style>
-    :root { color-scheme: light; }
-    body { font-family: 'Fredoka', system-ui, sans-serif; }
-
-    .cozy-glass {
-      background: rgba(255, 248, 240, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+    :root {
+      --bg:        #050505;
+      --bg-2:      #0A0910;
+      --panel:     #100F18;
+      --panel-2:   #16151F;
+      --line:      rgba(255,255,255,.09);
+      --line-2:    rgba(255,255,255,.18);
+      --text:      #F5F4F7;
+      --dim:       #9B99A8;
+      --dim-2:     #6E6C7B;
+      --brand:     #6D28D9;
+      --brand-2:   #8B5CF6;
+      --brand-soft: rgba(109,40,217,.16);
+      --grain:     .05;
+      --mosaic:    .34;
+      --num:       rgba(255,255,255,.46);
+      --shadow:    0 24px 60px -20px rgba(0,0,0,.8);
+      color-scheme: dark;
     }
-    .gradient-text {
-      background: linear-gradient(135deg, #E76F51, #F4A261);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    /* Discord pulse LED */
-    .discord-pulse { position: relative; overflow: visible; }
-    .discord-pulse::after {
-      content: '';
-      position: absolute; top: 4px; right: 4px;
-      width: 9px; height: 9px; border-radius: 9999px;
-      background: #22c55e;
-      box-shadow: 0 0 8px 0 rgba(34,197,94,0.85);
-      animation: discordLed 2.2s infinite ease-in-out;
-    }
-    @keyframes discordLed {
-      0%   { opacity:.9; transform:scale(1);   box-shadow:0 0 8px 0 rgba(34,197,94,.9); }
-      50%  { opacity:.6; transform:scale(.9);   box-shadow:0 0 3px 0 rgba(34,197,94,.5); }
-      100% { opacity:.9; transform:scale(1);   box-shadow:0 0 8px 0 rgba(34,197,94,.9); }
-    }
-
-    /* Card hover tilt */
-    .card-tilt { transition: transform 200ms ease-out, box-shadow 200ms ease-out, border-color 200ms ease-out; }
-    .card-tilt:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(107,79,79,.15); border-color: rgba(244,162,97,.4); }
-
-    /* Steam button hover */
-    .steam-btn {
-      position: relative; overflow: hidden;
-      transition: background-color 500ms cubic-bezier(.22,.61,.36,1), color 500ms cubic-bezier(.22,.61,.36,1), padding-left 500ms cubic-bezier(.22,.61,.36,1);
-    }
-    .steam-btn::before {
-      content: ''; position: absolute; left: 9px; top: 50%;
-      width: 16px; height: 16px;
-      transform: translateY(-50%) scale(.4); opacity: 0;
-      background-image: url('Images/steamlogo.png'); background-size: contain; background-repeat: no-repeat; background-position: center;
-      transition: opacity 220ms ease-out, transform 220ms ease-out;
-    }
-    .steam-btn span { display: inline-block; transition: transform 500ms cubic-bezier(.25,.8,.25,1); }
-    .steam-btn:hover { background-color: #1b9df0 !important; color: #f9fafb !important; padding-left: 1.5rem; }
-    .steam-btn:hover::before { transition-delay: 150ms; opacity: 1; transform: translateY(-50%) scale(1); }
-    .steam-btn:hover span { transform: translateX(6px); }
-
-    /* Presskit button hover */
-    .presskit-btn {
-      position: relative; overflow: hidden;
-      transition: background-color 500ms cubic-bezier(.22,.61,.36,1), color 500ms cubic-bezier(.22,.61,.36,1), padding-left 500ms cubic-bezier(.22,.61,.36,1);
-    }
-    .presskit-btn::before {
-      content: '💾'; position: absolute; left: 8px; top: calc(50% - 1px);
-      transform: translateY(-50%) scale(1); opacity: 0; font-size: 13px; line-height: 1;
-      transition: opacity 220ms ease-out, transform 220ms ease-out;
-    }
-    .presskit-btn span { display: inline-block; transition: transform 500ms cubic-bezier(.25,.8,.25,1); }
-    .presskit-btn:hover { background-color: #F4A261 !important; color: #3D2C2C !important; padding-left: 1.4rem; }
-    .presskit-btn:hover::before { transition-delay: 150ms; opacity: 1; transform: translateY(-50%) scale(1); }
-    .presskit-btn:hover span { transform: translateX(6px); }
-
-    /* Hero overlay gradient */
-    .hero-overlay {
-      background: linear-gradient(to bottom,
-        rgba(255,248,240,.1) 0%, rgba(255,248,240,.35) 50%, rgba(255,248,240,1) 100%);
+    [data-theme="light"] {
+      --bg:        #FFFFFF;
+      --bg-2:      #F7F6FA;
+      --panel:     #FFFFFF;
+      --panel-2:   #F4F2F9;
+      --line:      rgba(5,5,5,.10);
+      --line-2:    rgba(5,5,5,.22);
+      --text:      #111111;
+      --dim:       #56545F;
+      --dim-2:     #83818E;
+      --brand:     #6D28D9;
+      --brand-2:   #7C3AED;
+      --brand-soft: rgba(109,40,217,.10);
+      --grain:     .022;
+      --mosaic:    .22;
+      --num:       rgba(5,5,5,.40);
+      --shadow:    0 24px 60px -24px rgba(17,17,17,.22);
+      color-scheme: light;
     }
 
-    /* Float-up entrance animations */
-    @keyframes floatUp { 0% { opacity:0; transform:translateY(24px); } 100% { opacity:1; transform:translateY(0); } }
-    .animate-float-up        { animation: floatUp .8s ease-out both; }
-    .animate-float-up-delay  { animation: floatUp .8s ease-out .2s both; }
-    .animate-float-up-delay2 { animation: floatUp .8s ease-out .4s both; }
+    * { -webkit-tap-highlight-color: transparent; }
+    html, body { background: var(--bg); }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      overflow-x: hidden;
+      transition: background-color .4s ease, color .4s ease;
+    }
+    ::selection { background: var(--brand); color: #fff; }
 
-    /* Language selector dropdown */
+    .display  { font-family: 'Montserrat', system-ui, sans-serif; }
+    /* Brand spec: Montserrat SemiBold 600, uppercase, tracking -0.025em */
+    .wordmark { font-family: 'Montserrat', system-ui, sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: -.025em; }
+    .wordmark-lg { font-weight: 700; letter-spacing: -.03em; }
+
+    .c-text  { color: var(--text); }
+    .c-dim   { color: var(--dim); }
+    .c-dim2  { color: var(--dim-2); }
+    .c-brand { color: var(--brand-2); }
+    a.c-dim:hover.hover-text, .hover-text:hover { color: var(--text); }
+    .bg-panel  { background: var(--panel); }
+    .bg-panel2 { background: var(--panel-2); }
+    .bd   { border-color: var(--line); }
+    .bd-2 { border-color: var(--line-2); }
+
+    /* ── Film grain ── */
+    .grain {
+      position: fixed; inset: -50%; z-index: 60; pointer-events: none;
+      opacity: var(--grain);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      animation: grainShift 5s steps(5) infinite;
+    }
+    @keyframes grainShift {
+      0%,100% { transform: translate(0,0); }
+      20% { transform: translate(-3%,-4%); }
+      40% { transform: translate(-6%,3%); }
+      60% { transform: translate(4%,-2%); }
+      80% { transform: translate(-2%,5%); }
+    }
+
+    /* ── Hero mosaic ── */
+    .mosaic-wrap { position: absolute; inset: 0; overflow: hidden; }
+    .mosaic {
+      position: absolute; top: -34%; left: -30%; width: 160%; height: 195%;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+      transform: rotate(-9deg);
+      filter: blur(1px) saturate(.8);
+      opacity: var(--mosaic);
+      animation: mosaicDrift 26s linear infinite alternate;
+    }
+    @media (min-width: 768px) { .mosaic { grid-template-columns: repeat(6, 1fr); } }
+    .mosaic img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block; }
+    @keyframes mosaicDrift {
+      from { transform: rotate(-9deg) translate(0, 3%)     scale(1.04); }
+      to   { transform: rotate(-9deg) translate(-4%, -17%) scale(1.16); }
+    }
+    .hero-veil {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(58% 52% at 50% 42%, var(--brand-soft) 0%, transparent 70%),
+        radial-gradient(95% 72% at 50% 50%, transparent 0%, var(--bg) 80%),
+        linear-gradient(to bottom, var(--bg) 0%, transparent 20%, transparent 60%, var(--bg) 100%);
+    }
+
+    /* ── Reveal on scroll ──
+       Only hidden once the `js` class is set, so content is never
+       permanently invisible if scripting is off or the observer never fires. */
+    .js .reveal { opacity: 0; transform: translateY(26px); transition: opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1); }
+    .js .reveal.in { opacity: 1; transform: none; }
+    .js .reveal[data-d="1"] { transition-delay: .09s; }
+    .js .reveal[data-d="2"] { transition-delay: .18s; }
+    .js .reveal[data-d="3"] { transition-delay: .27s; }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex; align-items: center; gap: .55rem;
+      padding: .72rem 1.35rem; border-radius: 2px;
+      font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: .72rem;
+      letter-spacing: .08em; text-transform: uppercase;
+      transition: background-color .35s cubic-bezier(.16,1,.3,1), color .35s ease, border-color .35s ease, transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s ease;
+      border: 1px solid transparent; white-space: nowrap; cursor: pointer;
+    }
+    .btn-primary { background: var(--brand); color: #fff; }
+    .btn-primary:hover { background: var(--brand-2); transform: translateY(-2px); box-shadow: 0 12px 28px -10px var(--brand); }
+    .btn-ghost { border-color: var(--line-2); color: var(--text); background: transparent; }
+    .btn-ghost:hover { border-color: var(--brand-2); color: var(--brand-2); transform: translateY(-2px); }
+    .btn svg { width: 15px; height: 15px; flex: none; }
+
+    /* ── Tag pill ── */
+    .tag {
+      font-family: 'Montserrat', sans-serif; font-size: .62rem; font-weight: 600;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: .28rem .6rem; border-radius: 2px;
+      border: 1px solid var(--line); color: var(--dim-2);
+    }
+
+    /* ── Game strip ── */
+    .strip { position: relative; padding: 4.5rem 0; border-top: 1px solid var(--line); }
+    .strip:first-child { border-top: 0; }
+    .strip-num {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: clamp(3.25rem, 8vw, 5.75rem); line-height: .78; letter-spacing: -.045em;
+      color: var(--num);
+      user-select: none; display: block;
+      transition: color .45s ease, -webkit-text-stroke-color .45s ease;
+    }
+    /* Outlined numerals where the browser can stroke text; solid tint otherwise. */
+    @supports (-webkit-text-stroke: 1px black) {
+      .strip-num { color: transparent; -webkit-text-stroke: 1.7px var(--num); }
+    }
+    .strip:hover .strip-num { color: var(--brand-2); -webkit-text-stroke-color: var(--brand-2); }
+    @supports (-webkit-text-stroke: 1px black) {
+      .strip:hover .strip-num { color: transparent; }
+    }
+    .shot-main {
+      position: relative; overflow: hidden; border-radius: 3px;
+      border: 1px solid var(--line); background: var(--panel);
+      box-shadow: var(--shadow); cursor: zoom-in; display: block;
+    }
+    .shot-main img { transition: transform 1.1s cubic-bezier(.16,1,.3,1); display: block; width: 100%; }
+    .shot-main:hover img { transform: scale(1.045); }
+    .shot-main::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.35), transparent 45%);
+      opacity: 0; transition: opacity .4s ease; pointer-events: none;
+    }
+    [data-theme="dark"] .shot-main::after { opacity: 1; }
+    .shot-thumb {
+      overflow: hidden; border-radius: 2px; border: 1px solid var(--line);
+      background: var(--panel); transition: border-color .3s ease, transform .3s ease, opacity .3s ease;
+      cursor: zoom-in; display: block; opacity: .75;
+    }
+    .shot-thumb:hover { border-color: var(--brand-2); transform: translateY(-2px); opacity: 1; }
+    .shot-thumb img { display: block; width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+
+    /* ── Nav ── */
+    .nav-blur {
+      background: color-mix(in srgb, var(--bg) 80%, transparent);
+      backdrop-filter: blur(16px) saturate(150%);
+      -webkit-backdrop-filter: blur(16px) saturate(150%);
+    }
+    .nav-link { position: relative; color: var(--dim); transition: color .3s ease; }
+    .nav-link:hover { color: var(--text); }
+    .nav-link::after {
+      content: ''; position: absolute; left: 0; bottom: -6px; height: 1px; width: 0;
+      background: var(--brand-2); transition: width .35s cubic-bezier(.16,1,.3,1);
+    }
+    .nav-link:hover::after { width: 100%; }
+
+    /* Logo variants follow the theme (brand pack: reverse on dark, primary on light) */
+    [data-theme="dark"]  .logo-light { display: none; }
+    [data-theme="light"] .logo-dark  { display: none; }
+    [data-theme="dark"]  .icon-sun   { display: none; }
+    [data-theme="light"] .icon-moon  { display: none; }
+
     .lang-dropdown { display: none; }
     .lang-dropdown.open { display: flex; }
 
-    /* Screenshot gallery grid item */
-    .ss-item { cursor: pointer; transition: transform 150ms ease, box-shadow 150ms ease; }
-    .ss-item:hover { transform: scale(1.03); box-shadow: 0 8px 24px rgba(107,79,79,.18); }
+    /* ── Discord LED ── */
+    .led { position: relative; }
+    .led::after {
+      content: ''; position: absolute; top: -3px; right: -3px;
+      width: 7px; height: 7px; border-radius: 999px; background: #22c55e;
+      box-shadow: 0 0 8px rgba(34,197,94,.9); animation: led 2.2s ease-in-out infinite;
+    }
+    @keyframes led { 0%,100% { opacity: .95; transform: scale(1); } 50% { opacity: .45; transform: scale(.8); } }
 
-    /* Lightbox overlay */
-    .lightbox {
-      position: fixed; inset: 0; z-index: 100;
-      background: rgba(0,0,0,.85); backdrop-filter: blur(6px);
-      display: none; flex-direction: column; align-items: center; justify-content: center;
-      cursor: zoom-out;
-    }
-    .lightbox.active { display: flex; }
-    .lightbox-main { max-width: 90vw; max-height: 75vh; border-radius: 12px; cursor: default; object-fit: contain; }
-    .lightbox-arrow {
-      position: absolute; top: 50%; transform: translateY(-50%);
-      width: 48px; height: 48px; border-radius: 50%; border: none;
-      background: rgba(255,255,255,.15); color: #fff; font-size: 22px;
-      cursor: pointer; display: flex; align-items: center; justify-content: center;
-      transition: background 150ms;
-      backdrop-filter: blur(4px);
-    }
-    .lightbox-arrow:hover { background: rgba(255,255,255,.3); }
-    .lightbox-arrow.left { left: 16px; }
-    .lightbox-arrow.right { right: 16px; }
-    .lightbox-thumbs {
-      display: flex; gap: 8px; margin-top: 16px; overflow-x: auto;
-      max-width: 90vw; padding: 4px 0;
-    }
-    .lightbox-thumb {
-      width: 72px; height: 48px; border-radius: 6px; object-fit: cover;
-      cursor: pointer; border: 2px solid transparent; opacity: .5;
-      transition: opacity 150ms, border-color 150ms;
-      flex-shrink: 0;
-    }
-    .lightbox-thumb:hover { opacity: .8; }
-    .lightbox-thumb.active { opacity: 1; border-color: #F4A261; }
+    /* ── Lightbox ── */
+    #lightbox { display: none; }
+    #lightbox.open { display: flex; }
 
-    /* Trailer play button */
-    .trailer-play {
-      position: absolute; inset: 0;
-      display: flex; align-items: center; justify-content: center;
-      background: rgba(0,0,0,.15);
-      transition: background 200ms;
-      cursor: pointer;
+    /* ── Marquee band ── */
+    .marquee { overflow: hidden; }
+    .marquee-track {
+      display: flex; gap: 2.5rem; width: max-content; align-items: center;
+      animation: marquee 46s linear infinite;
+      font-family: 'Montserrat', sans-serif; font-weight: 700;
+      text-transform: uppercase; letter-spacing: -.02em;
+      font-size: clamp(1.4rem, 3.6vw, 2.75rem);
+      color: transparent; -webkit-text-stroke: 1px var(--line-2);
+      white-space: nowrap;
     }
-    .trailer-play:hover { background: rgba(0,0,0,.3); }
-    .trailer-play svg { width: 56px; height: 56px; filter: drop-shadow(0 2px 8px rgba(0,0,0,.4)); transition: transform 150ms; }
-    .trailer-play:hover svg { transform: scale(1.1); }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-    /* Section divider */
-    .section-divider { height: 1px; background: linear-gradient(to right, transparent, rgba(244,162,97,.3), transparent); }
+    @media (prefers-reduced-motion: reduce) {
+      .mosaic, .grain, .marquee-track, .led::after { animation: none !important; }
+      .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+      html { scroll-behavior: auto !important; }
+    }
   </style>
 </head>
 
-<body class="h-full bg-cream text-cocoa font-fredoka">
+<body>
+  <div class="grain" aria-hidden="true"></div>
 
-  <!-- ═══ NAV ═══ -->
-  <header class="sticky top-0 z-50 cozy-glass border-b border-apricot/20">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 py-3 flex items-center justify-between">
-      <a href="index.html" class="text-lg font-bold tracking-tight gradient-text">Crow Interactive</a>
+  <!-- ══════════════════ NAV ══════════════════ -->
+  <header class="fixed top-0 inset-x-0 z-50 nav-blur border-b bd">
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 h-16 flex items-center justify-between gap-4">
 
-      <!-- Desktop nav -->
-      <nav class="hidden sm:flex items-center gap-6 text-sm font-medium">
-        <a href="index.html" class="text-cocoa font-semibold transition-colors" data-i18n="nav.presskit">Press Kit</a>
-        <a href="games.html" class="text-latte hover:text-cocoa transition-colors" data-i18n="nav.games">Games</a>
+      <a href="#top" class="flex items-center gap-2.5 shrink-0" aria-label="Crow Interactive">
+        <img src="Images/brand/symbol-reverse.png" alt="" class="logo-dark h-7 w-auto" />
+        <img src="Images/brand/symbol-primary.png" alt="" class="logo-light h-7 w-auto" />
+        <span class="wordmark text-[13px] sm:text-sm c-text">Crow Interactive</span>
+      </a>
 
-        <!-- Language selector -->
-        <div class="relative lang-wrapper">
-          <button id="langBtn" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-apricot/25 hover:border-apricot/50 text-sm transition-colors">
-            <span id="langFlag">🇺🇸</span>
-            <span id="langCode" class="text-xs font-semibold uppercase">EN</span>
-            <svg class="w-3 h-3 text-latte" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
-          </button>
-          <div class="lang-dropdown absolute right-0 top-full mt-1 flex-col bg-warmwhite border border-apricot/20 rounded-xl shadow-lg overflow-hidden min-w-[120px]">
-            <button data-lang-btn="en" onclick="switchLang('en')" class="w-full flex items-center gap-2 px-3 py-2 text-sm hover:bg-peach/40 transition-colors">🇺🇸 English</button>
-            <button data-lang-btn="ko" onclick="switchLang('ko')" class="w-full flex items-center gap-2 px-3 py-2 text-sm hover:bg-peach/40 transition-colors">🇰🇷 한국어</button>
-            <button data-lang-btn="zh" onclick="switchLang('zh')" class="w-full flex items-center gap-2 px-3 py-2 text-sm hover:bg-peach/40 transition-colors">🇨🇳 中文</button>
-            <button data-lang-btn="ja" onclick="switchLang('ja')" class="w-full flex items-center gap-2 px-3 py-2 text-sm hover:bg-peach/40 transition-colors">🇯🇵 日本語</button>
-          </div>
-        </div>
+      <nav class="hidden md:flex items-center gap-8 text-[13px] font-medium">
+        <a href="#games"     class="nav-link" data-i18n="nav.games">Games</a>
+        <a href="#studio"    class="nav-link" data-i18n="nav.studio">Studio</a>
+        <a href="#community" class="nav-link" data-i18n="nav.community">Community</a>
+        <a href="#contact"   class="nav-link" data-i18n="nav.contact">Contact</a>
       </nav>
 
-      <!-- Mobile menu button -->
-      <button id="menuBtn" class="sm:hidden p-2 rounded-lg border border-apricot/30 text-cocoa hover:bg-peach/50">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
+      <div class="flex items-center gap-2">
+        <div class="relative lang-wrapper">
+          <button id="langBtn" class="flex items-center gap-1.5 px-2.5 h-9 rounded-[2px] border bd hover:bd-2 transition-colors" aria-label="Language" aria-expanded="false">
+            <span id="langCode" class="wordmark text-[11px] c-dim">EN</span>
+            <svg class="w-3 h-3 c-dim2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="lang-dropdown absolute right-0 top-full mt-2 flex-col bg-panel border bd rounded-[2px] overflow-hidden min-w-[132px] shadow-2xl">
+            <button data-lang-btn="en" onclick="switchLang('en')" class="w-full text-left px-3.5 py-2.5 text-[13px] c-dim hover:c-text hover:bg-panel2 transition-colors">English</button>
+            <button data-lang-btn="ko" onclick="switchLang('ko')" class="w-full text-left px-3.5 py-2.5 text-[13px] c-dim hover:c-text hover:bg-panel2 transition-colors">한국어</button>
+            <button data-lang-btn="zh" onclick="switchLang('zh')" class="w-full text-left px-3.5 py-2.5 text-[13px] c-dim hover:c-text hover:bg-panel2 transition-colors">简体中文</button>
+            <button data-lang-btn="ja" onclick="switchLang('ja')" class="w-full text-left px-3.5 py-2.5 text-[13px] c-dim hover:c-text hover:bg-panel2 transition-colors">日本語</button>
+          </div>
+        </div>
+
+        <button id="themeBtn" class="w-9 h-9 grid place-items-center rounded-[2px] border bd hover:bd-2 transition-colors" aria-label="Toggle colour theme">
+          <svg class="icon-moon w-4 h-4 c-dim" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          <svg class="icon-sun w-4 h-4 c-dim" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+
+        <button id="menuBtn" class="md:hidden w-9 h-9 grid place-items-center rounded-[2px] border bd" aria-label="Menu" aria-expanded="false">
+          <svg class="w-4 h-4 c-dim" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
     </div>
+
+    <nav id="mobileNav" class="md:hidden hidden border-t bd">
+      <div class="px-5 py-4 flex flex-col gap-4 text-sm">
+        <a href="#games"     class="c-dim" data-i18n="nav.games">Games</a>
+        <a href="#studio"    class="c-dim" data-i18n="nav.studio">Studio</a>
+        <a href="#community" class="c-dim" data-i18n="nav.community">Community</a>
+        <a href="#contact"   class="c-dim" data-i18n="nav.contact">Contact</a>
+      </div>
+    </nav>
   </header>
 
-  <!-- Mobile Nav -->
-  <nav id="mobileNav" class="sm:hidden hidden border-b border-apricot/20 cozy-glass">
-    <div class="mx-auto max-w-6xl px-4 py-3 flex flex-col gap-3 text-sm font-medium text-latte">
-      <a href="index.html" class="text-cocoa font-semibold" data-i18n="nav.presskit">Press Kit</a>
-      <a href="games.html" class="hover:text-cocoa" data-i18n="nav.games">Games</a>
-      <div class="flex items-center gap-2 pt-2 border-t border-apricot/15">
-        <button onclick="switchLang('en')" data-lang-btn="en" class="px-2 py-1 rounded text-xs hover:bg-peach/40">🇺🇸 EN</button>
-        <button onclick="switchLang('ko')" data-lang-btn="ko" class="px-2 py-1 rounded text-xs hover:bg-peach/40">🇰🇷 KO</button>
-        <button onclick="switchLang('zh')" data-lang-btn="zh" class="px-2 py-1 rounded text-xs hover:bg-peach/40">🇨🇳 ZH</button>
-        <button onclick="switchLang('ja')" data-lang-btn="ja" class="px-2 py-1 rounded text-xs hover:bg-peach/40">🇯🇵 JA</button>
-      </div>
-    </div>
-  </nav>
-
-  <!-- ═══ HERO ═══ -->
-  <section class="relative overflow-hidden min-h-[70vh] sm:min-h-[80vh] flex flex-col">
-    <img src="Images/storePageAssets/library_hero.png" alt="Corner Market" class="absolute inset-0 w-full h-full object-cover object-center" />
-    <div class="hero-overlay absolute inset-0"></div>
-
-    <!-- Trailer (upper center) -->
-    <div class="relative z-10 flex-1 flex items-start justify-center pt-8 sm:pt-14 px-4">
-      <a href="https://www.youtube.com/watch?v=XkoVhhirWxc" target="_blank" rel="noreferrer"
-         class="block w-full max-w-lg sm:max-w-2xl rounded-2xl overflow-hidden border border-white/20 shadow-xl relative group">
-        <img src="https://img.youtube.com/vi/XkoVhhirWxc/maxresdefault.jpg" alt="Corner Market Trailer"
-             class="w-full aspect-video object-cover" />
-        <div class="trailer-play group-hover:bg-black/30">
-          <svg viewBox="0 0 68 48" fill="none"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24L27 14v20" fill="#fff"/></svg>
-        </div>
-      </a>
+  <!-- ══════════════════ HERO ══════════════════ -->
+  <section id="top" class="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
+    <div class="mosaic-wrap" aria-hidden="true">
+      <div class="mosaic" id="mosaic"></div>
+      <div class="hero-veil"></div>
     </div>
 
-    <!-- Hero content (bottom) -->
-    <div class="relative z-10 w-full mx-auto max-w-6xl px-4 sm:px-6 pb-10 sm:pb-16">
-      <div class="max-w-2xl">
-        <img src="Images/storePageAssets/library_logo_transparent.png" alt="Corner Market Logo" class="h-16 sm:h-24 w-auto mb-5 drop-shadow-lg animate-float-up" />
-        <p class="text-base sm:text-lg text-cocoa/80 max-w-lg animate-float-up-delay" data-i18n="hero.description">
-          A relaxing idle market simulator that sits at the corner of your screen while you do other things.
-        </p>
-        <div class="mt-6 flex flex-wrap items-center gap-3 animate-float-up-delay2">
-          <a href="https://store.steampowered.com/app/4302940" target="_blank" rel="noreferrer"
-            class="px-5 py-2.5 rounded-xl bg-tangerine text-warmwhite font-semibold hover:bg-tangerine/90 transition-colors steam-btn">
-            <span data-i18n="hero.wishlist">Wishlist on Steam</span>
-          </a>
-          <a href="https://drive.google.com/drive/folders/11fc_N7N8_fo6dFhyuxJiKEgt9C_92LCf?usp=sharing" target="_blank" rel="noreferrer"
-            class="px-5 py-2.5 rounded-xl bg-warmwhite text-cocoa font-semibold border border-apricot/30 hover:border-apricot/60 transition-colors presskit-btn">
-            <span data-i18n="hero.presskit">Download Press Kit</span>
-          </a>
-        </div>
-        <!-- Social links -->
-        <div class="mt-4 inline-flex items-center gap-1 bg-warmwhite/70 backdrop-blur-sm rounded-full px-3 py-1.5 border border-apricot/15 animate-float-up-delay2">
-          <a href="https://discord.gg/nUbnxYNqUr" target="_blank" rel="noreferrer" class="p-1.5 rounded-full hover:bg-peach/60 transition-colors" aria-label="Discord">
-            <svg class="w-5 h-5 text-latte hover:text-cocoa transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
-          </a>
-          <a href="https://x.com/Bedirhan_T0prak" target="_blank" rel="noreferrer" class="p-1.5 rounded-full hover:bg-peach/60 transition-colors" aria-label="X (Twitter)">
-            <svg class="w-5 h-5 text-latte hover:text-cocoa transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          </a>
-          <a href="https://www.youtube.com/@CrowInteractive" target="_blank" rel="noreferrer" class="p-1.5 rounded-full hover:bg-peach/60 transition-colors" aria-label="YouTube">
-            <svg class="w-5 h-5 text-latte hover:text-cocoa transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+    <div class="relative z-10 px-5 text-center max-w-3xl mx-auto pt-24 pb-28">
+      <img src="Images/brand/symbol-reverse.png" alt="Crow Interactive" class="logo-dark mx-auto h-24 sm:h-32 w-auto" />
+      <img src="Images/brand/symbol-primary.png" alt="Crow Interactive" class="logo-light mx-auto h-24 sm:h-32 w-auto" />
 
-  <!-- ═══ FACTSHEET + ABOUT (side-by-side on desktop) ═══ -->
-  <section class="mx-auto max-w-6xl px-4 sm:px-6 py-14 sm:py-20">
-    <div class="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-10 lg:gap-14">
+      <h1 class="wordmark wordmark-lg mt-8 text-[clamp(1.85rem,7.5vw,4.25rem)] leading-[.95] c-text">Crow Interactive</h1>
 
-      <!-- Factsheet sidebar -->
-      <div class="bg-warmwhite border border-apricot/15 rounded-2xl p-6 h-fit">
-        <h2 class="text-xl font-bold mb-4" data-i18n="fact.title">Factsheet</h2>
-        <dl class="space-y-3 text-sm">
-          <div>
-            <dt class="text-latte/70" data-i18n="fact.developer">Developer</dt>
-            <dd class="font-medium">Tiny Orbit</dd>
-          </div>
-          <div>
-            <dt class="text-latte/70" data-i18n="fact.publisher">Publisher</dt>
-            <dd class="font-medium">Crow Interactive</dd>
-          </div>
-          <div>
-            <dt class="text-latte/70" data-i18n="fact.platform">Platform</dt>
-            <dd class="font-medium">PC (Steam)</dd>
-          </div>
-          <div>
-            <dt class="text-latte/70" data-i18n="fact.genre">Genre</dt>
-            <dd class="font-medium" data-i18n="fact.genre.val">Idle / Simulation / Management</dd>
-          </div>
-          <div>
-            <dt class="text-latte/70" data-i18n="fact.release">Release Date</dt>
-            <dd class="font-medium" data-i18n="fact.release.val">Coming Soon</dd>
-          </div>
-          <div>
-            <dt class="text-latte/70" data-i18n="fact.price">Price</dt>
-            <dd class="font-medium" data-i18n="fact.price.val">TBA</dd>
-          </div>
-          <div>
-            <dt class="text-latte/70" data-i18n="fact.languages">Languages</dt>
-            <dd class="font-medium" data-i18n="fact.languages.val">17 languages (full text localization)</dd>
-            <dd class="mt-1">
-              <button onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180')" class="text-xs text-apricot hover:text-tangerine transition-colors flex items-center gap-1 font-medium">
-                <span data-i18n="fact.languages.toggle">Show all</span>
-                <svg class="w-3 h-3 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
-              </button>
-              <div class="hidden mt-1.5 text-xs text-latte/80 leading-relaxed space-y-0.5">
-                <span class="block">English • French • German • Italian</span>
-                <span class="block">Spanish (Spain) • Spanish (Latin America)</span>
-                <span class="block">Portuguese (Brazil) • Portuguese (Portugal)</span>
-                <span class="block">Japanese • Korean • Simplified Chinese</span>
-                <span class="block">Traditional Chinese • Russian • Polish</span>
-                <span class="block">Swedish • Thai • Turkish</span>
-              </div>
-            </dd>
-          </div>
-          <div>
-            <dt class="text-latte/70" data-i18n="fact.sysreq">Minimum System Requirements</dt>
-            <dd class="font-medium text-xs leading-relaxed mt-1">
-              <span class="block">OS: Windows 10 (64-bit)</span>
-              <span class="block">CPU: Intel Core i3-6100 @ 3.7 GHz</span>
-              <span class="block">RAM: 2 GB</span>
-              <span class="block">GPU: DX11 compatible</span>
-              <span class="block">Storage: 1 GB</span>
-            </dd>
-          </div>
-          <div>
-            <dt class="text-latte/70" data-i18n="fact.contact">Contact</dt>
-            <dd class="font-medium"><a href="mailto:contact@crowinteractivegames.com" class="text-tangerine hover:underline">contact@crowinteractivegames.com</a></dd>
-          </div>
-        </dl>
-      </div>
-
-      <!-- About the game -->
-      <div>
-        <h2 class="text-2xl sm:text-3xl font-bold" data-i18n="about.title">About the Game</h2>
-        <p class="mt-4 text-latte leading-relaxed max-w-3xl" data-i18n="about.text">
-          Corner Market is a cozy idle simulation game where you run a small corner shop. Stock shelves, serve customers, expand your store, and watch your little market thrive, all while you go about your day. Perfect for multitaskers who love gentle progression.
-        </p>
-
-        <div class="section-divider my-10"></div>
-
-        <!-- Features -->
-        <h2 class="text-2xl sm:text-3xl font-bold" data-i18n="features.title">Features</h2>
-        <ul class="mt-4 space-y-2 text-latte max-w-2xl">
-          <li class="flex items-start gap-2">
-            <span class="text-apricot mt-0.5">✦</span>
-            <span data-i18n="feature.1">Idle gameplay, your shop runs even when minimized</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-apricot mt-0.5">✦</span>
-            <span data-i18n="feature.2">Stock shelves, manage inventory, and set prices</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-apricot mt-0.5">✦</span>
-            <span data-i18n="feature.3">Expand and customize your corner market</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-apricot mt-0.5">✦</span>
-            <span data-i18n="feature.5">Cozy pixel art aesthetic with relaxing soundtrack</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-apricot mt-0.5">✦</span>
-            <span data-i18n="feature.6">Overlay mode, play while watching videos or working</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider mx-auto max-w-6xl"></div>
-
-  <!-- ═══ STORE DESCRIPTION ═══ -->
-  <section class="mx-auto max-w-6xl px-4 sm:px-6 py-10 sm:py-16">
-    <div class="max-w-3xl mx-auto space-y-10">
-
-      <!-- Intro -->
-      <div class="text-center">
-        <p class="text-lg sm:text-xl text-cocoa leading-relaxed font-medium" data-i18n="store.intro">Corner Market is an idle market simulator designed to sit at the corner of your screen.</p>
-        <p class="text-lg sm:text-xl text-latte leading-relaxed mt-2" data-i18n="store.intro2">Letting you run your own cozy shop while getting on with your day!</p>
-      </div>
-
-      <!-- GIF 1 -->
-      <div class="flex justify-center">
-        <video autoplay loop muted playsinline class="rounded-2xl border border-apricot/15 w-[80%] shadow-lg">
-          <source src="Images/gifs/gif_top_big.mp4" type="video/mp4">
-        </video>
-      </div>
-
-      <!-- Stock Your Shelves -->
-      <div>
-        <div class="bg-gradient-to-r from-tangerine to-apricot rounded-xl px-5 py-2.5 inline-block mb-3 -ml-1">
-          <img data-i18n-src="Images/Corner Market Title Exports/{langFolder}/StockYourShelves_{langFolder}.png"
-               src="Images/Corner Market Title Exports/english/StockYourShelves_english.png"
-               alt="Stock Your Shelves" class="h-4 sm:h-5 w-auto" />
-        </div>
-        <p class="text-latte leading-relaxed" data-i18n="store.stock">Order products and watch your market come to life as items get restocked, and sold. Unlock new product categories as you grow. Grow your business from small store to supermarket.</p>
-      </div>
-
-      <!-- Earn & Reinvest -->
-      <div>
-        <div class="bg-gradient-to-r from-tangerine to-apricot rounded-xl px-5 py-2.5 inline-block mb-3 -ml-1">
-          <img data-i18n-src="Images/Corner Market Title Exports/{langFolder}/EarnReinvest_{langFolder}.png"
-               src="Images/Corner Market Title Exports/english/EarnReinvest_english.png"
-               alt="Earn & Reinvest" class="h-4 sm:h-5 w-auto" />
-        </div>
-        <p class="text-latte leading-relaxed" data-i18n="store.earn">Every sale fills your register, use your profits to expand your store. Open new aisles and attract more customers to keep the foot traffic flowing.</p>
-      </div>
-
-      <!-- GIF 2 -->
-      <div class="flex justify-center">
-        <video autoplay loop muted playsinline class="rounded-2xl border border-apricot/15 w-[60%] shadow-lg">
-          <source src="Images/gifs/gif_bottom_small.mp4" type="video/mp4">
-        </video>
-      </div>
-
-      <!-- Hire & Automate -->
-      <div>
-        <div class="bg-gradient-to-r from-tangerine to-apricot rounded-xl px-5 py-2.5 inline-block mb-3 -ml-1">
-          <img data-i18n-src="Images/Corner Market Title Exports/{langFolder}/HireAutomate_{langFolder}.png"
-               src="Images/Corner Market Title Exports/english/HireAutomate_english.png"
-               alt="Hire & Automate" class="h-4 sm:h-5 w-auto" />
-        </div>
-        <p class="text-latte leading-relaxed" data-i18n="store.hire">Bring on staff to handle restocking, checkout, cleaning, and deliveries. Expand your team to run a smoother, faster, and more profitable corner market.</p>
-      </div>
-
-      <!-- Multitasking -->
-      <div>
-        <div class="bg-gradient-to-r from-tangerine to-apricot rounded-xl px-5 py-2.5 inline-block mb-3 -ml-1">
-          <img data-i18n-src="Images/Corner Market Title Exports/{langFolder}/Multitasking_{langFolder}.png"
-               src="Images/Corner Market Title Exports/english/Multitasking_english.png"
-               alt="Multitasking" class="h-4 sm:h-5 w-auto" />
-        </div>
-        <p class="text-latte leading-relaxed" data-i18n="store.multi">Corner Market is built to sit comfortably at the corner of your screen so you can focus on other work while your shop runs itself. Zoom in or out for a less distracting view, or drag it anywhere on your screen when you need it out of the way.</p>
-      </div>
-
-      <!-- Twitch Integration -->
-      <div class="bg-warmwhite border border-apricot/15 rounded-2xl p-5">
-        <p class="text-latte leading-relaxed">
-          <strong class="text-cocoa" data-i18n="store.twitch.label">Twitch Integration available:</strong>
-          <span data-i18n="store.twitch.desc"> Streamers can run their market live while viewers join as customers, showing up in your shop with their own Twitch names.</span>
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <div class="section-divider mx-auto max-w-6xl"></div>
-
-  <!-- ═══ SCREENSHOTS ═══ -->
-  <section id="screenshots" class="mx-auto max-w-6xl px-4 sm:px-6 py-10 sm:py-16">
-    <h2 class="text-2xl sm:text-3xl font-bold" data-i18n="screenshots.title">Screenshots</h2>
-    <div id="ssGrid" class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      <img src="Images/screenshots/sc1.png" alt="Screenshot 1" class="ss-item w-full rounded-xl border border-apricot/10" onclick="openLightbox(0)" />
-      <img src="Images/screenshots/sc2.png" alt="Screenshot 2" class="ss-item w-full rounded-xl border border-apricot/10" onclick="openLightbox(1)" />
-      <img src="Images/screenshots/sc3.png" alt="Screenshot 3" class="ss-item w-full rounded-xl border border-apricot/10" onclick="openLightbox(2)" />
-      <img src="Images/screenshots/sc4.png" alt="Screenshot 4" class="ss-item w-full rounded-xl border border-apricot/10" onclick="openLightbox(3)" />
-      <img src="Images/screenshots/sc5.png" alt="Screenshot 5" class="ss-item w-full rounded-xl border border-apricot/10" onclick="openLightbox(4)" />
-      <img src="Images/screenshots/sc6.png" alt="Screenshot 6" class="ss-item w-full rounded-xl border border-apricot/10" onclick="openLightbox(5)" />
-    </div>
-  </section>
-
-  <div class="section-divider mx-auto max-w-6xl"></div>
-
-  <!-- ═══ LOGO & BRANDING ═══ -->
-  <section id="branding" class="mx-auto max-w-6xl px-4 sm:px-6 py-10 sm:py-16">
-    <h2 class="text-2xl sm:text-3xl font-bold" data-i18n="branding.title">Logo & Branding</h2>
-
-    <!-- Game Logo -->
-    <h3 class="mt-6 text-lg font-semibold text-latte" data-i18n="branding.game">Game Logo</h3>
-    <div class="mt-3 flex flex-wrap gap-6 items-end">
-      <div class="bg-warmwhite border border-apricot/15 rounded-2xl p-6 flex items-center justify-center">
-        <img src="Images/storePageAssets/library_logo_transparent.png" alt="Corner Market Logo" class="h-16 sm:h-20 w-auto" />
-      </div>
-      <div class="bg-cocoa border border-apricot/15 rounded-2xl p-6 flex items-center justify-center">
-        <img src="Images/storePageAssets/library_logo_transparent.png" alt="Corner Market Logo (dark bg)" class="h-16 sm:h-20 w-auto" />
-      </div>
-    </div>
-
-    <!-- Studio Logo -->
-    <h3 class="mt-8 text-lg font-semibold text-latte" data-i18n="branding.studio">Studio Logo</h3>
-    <div class="mt-3 flex flex-wrap gap-6 items-end">
-      <div class="bg-warmwhite border border-apricot/15 rounded-2xl p-6 flex items-center justify-center">
-        <img src="Images/favicon.png" alt="Crow Interactive Logo" class="h-14 sm:h-16 w-auto" />
-      </div>
-      <div class="bg-cocoa border border-apricot/15 rounded-2xl p-6 flex items-center justify-center">
-        <img src="Images/favicon.png" alt="Crow Interactive Logo (dark bg)" class="h-14 sm:h-16 w-auto" />
-      </div>
-    </div>
-    <div class="mt-6">
-      <a href="https://drive.google.com/drive/folders/11fc_N7N8_fo6dFhyuxJiKEgt9C_92LCf?usp=sharing" target="_blank" rel="noreferrer"
-        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-tangerine text-warmwhite font-semibold hover:bg-tangerine/90 transition-colors">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg>
-        <span data-i18n="branding.download">Download all assets (Google Drive)</span>
-      </a>
-    </div>
-  </section>
-
-  <div class="section-divider mx-auto max-w-6xl"></div>
-
-  <!-- ═══ ABOUT THE DEVELOPER ═══ -->
-  <section class="mx-auto max-w-6xl px-4 sm:px-6 py-10 sm:py-16">
-    <div class="flex items-start gap-5">
-      <img src="Images/favicon.png" alt="Crow Interactive" class="hidden sm:block h-14 w-auto mt-1" />
-      <div>
-        <h2 class="text-2xl sm:text-3xl font-bold" data-i18n="dev.title">About Crow Interactive</h2>
-        <p class="mt-4 text-latte leading-relaxed max-w-3xl" data-i18n="dev.text">
-          Crow Interactive is an independent video game studio based in Turkey. After years of developing mobile games, the studio shifted its full focus to PC to pursue a long-held passion for deeper, more personal projects. Corner Market is the latest title from Crow Interactive, alongside Vending Machine Business Simulator and Game Store Simulator, all available on Steam.
-        </p>
-      </div>
-    </div>
-
-    <!-- Content Creator Policy -->
-    <div class="mt-8 bg-warmwhite border border-apricot/15 rounded-2xl p-5">
-      <p class="text-latte leading-relaxed">
-        <strong class="text-cocoa" data-i18n="creator.title">🎬 Content Creator Policy:</strong>
-        <span data-i18n="creator.text"> Corner Market is fully open for content creators. You are free to stream, record Let's Play videos, and monetize your content without any restrictions.</span>
+      <p class="mt-6 wordmark text-[10px] sm:text-[11px] c-dim" style="letter-spacing:.24em; font-weight:500;" data-i18n="hero.tag">
+        Independent game studio · Turkey
       </p>
+
+      <p class="mt-7 text-base sm:text-lg c-dim leading-relaxed max-w-xl mx-auto" data-i18n="hero.sub">
+        Compact simulation and idle games, built to sit alongside your day instead of taking it over.
+      </p>
+
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
+        <a href="#games" class="btn btn-primary" data-i18n="hero.cta.games">View the games</a>
+        <a href="https://store.steampowered.com/developer/crow" target="_blank" rel="noreferrer" class="btn btn-ghost">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.98 2C6.5 2 2.01 6.2 1.55 11.55l5.36 2.21a3.06 3.06 0 011.75-.55h.15l2.38-3.45v-.05a4.08 4.08 0 114.08 4.08h-.09l-3.4 2.43v.13a3.07 3.07 0 11-6.1-.5l-3.83-1.59A10.44 10.44 0 1022.42 12 10.43 10.43 0 0011.98 2zm-3.2 15.5l-1.23-.5a2.3 2.3 0 001.18 1.13 2.32 2.32 0 001.79-4.27l1.27.52a1.7 1.7 0 11-1.3 3.13zM18 9.79a2.72 2.72 0 10-2.72 2.72A2.72 2.72 0 0018 9.79zm-4.76 0a2.05 2.05 0 112.05 2.05 2.05 2.05 0 01-2.05-2.05z"/></svg>
+          <span data-i18n="hero.cta.steam">Steam page</span>
+        </a>
+      </div>
     </div>
 
-    <!-- Boilerplate -->
-    <div class="mt-8">
-      <h3 class="text-lg font-semibold" data-i18n="boilerplate.title">Quick Copy Descriptions</h3>
-      <div class="mt-4 space-y-4">
-        <!-- One-liner -->
-        <div class="bg-warmwhite border border-apricot/15 rounded-xl p-4">
-          <div class="flex items-center justify-between mb-2">
-            <span class="text-xs font-semibold text-latte/60 uppercase tracking-wide">One-liner</span>
-            <button onclick="copyBoilerplate('short')" class="text-xs px-2.5 py-1 rounded-lg bg-apricot/10 text-apricot hover:bg-apricot/20 transition-colors font-medium" data-i18n="boilerplate.copy">Copy</button>
-          </div>
-          <p id="bp-short" class="text-sm text-latte leading-relaxed" data-i18n="boilerplate.short">Corner Market is a cozy idle simulation game where you run a small corner shop at the edge of your screen while you go about your day.</p>
+    <a href="#games" class="absolute bottom-7 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 c-dim2 hover:c-brand transition-colors" aria-label="Scroll to games">
+      <span class="wordmark text-[9px]" style="letter-spacing:.25em; font-weight:500;" data-i18n="hero.scroll">Scroll</span>
+      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+    </a>
+  </section>
+
+  <!-- ══════════════════ GAMES ══════════════════ -->
+  <section id="games" class="relative scroll-mt-16">
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 pt-20 sm:pt-28">
+      <div class="reveal flex flex-wrap items-end justify-between gap-5 border-b bd pb-7">
+        <div>
+          <p class="wordmark text-[10px] c-brand" style="letter-spacing:.28em;" data-i18n="games.eyebrow">Catalogue</p>
+          <h2 class="display mt-3 text-[clamp(2rem,6vw,3.5rem)] font-bold leading-none tracking-[-.03em] c-text" data-i18n="games.title">Games</h2>
         </div>
-        <!-- Full paragraph -->
-        <div class="bg-warmwhite border border-apricot/15 rounded-xl p-4">
-          <div class="flex items-center justify-between mb-2">
-            <span class="text-xs font-semibold text-latte/60 uppercase tracking-wide">Full</span>
-            <button onclick="copyBoilerplate('long')" class="text-xs px-2.5 py-1 rounded-lg bg-apricot/10 text-apricot hover:bg-apricot/20 transition-colors font-medium" data-i18n="boilerplate.copy">Copy</button>
+        <p class="text-sm c-dim max-w-sm" data-i18n="games.sub">Five titles on Steam. Shops, machines, boats, and the numbers behind them.</p>
+      </div>
+    </div>
+
+    <div id="gameList" class="mx-auto max-w-[1400px] px-5 sm:px-8"></div>
+  </section>
+
+  <!-- ══════════════════ MARQUEE ══════════════════ -->
+  <div class="marquee py-9 border-y bd select-none" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Corner Market</span><span>·</span><span>Fisher Idle</span><span>·</span><span>Game Store Simulator</span><span>·</span><span>Vending Machine Business Simulator</span><span>·</span><span>Homeless Life Simulator</span><span>·</span><span>Corner Market</span><span>·</span><span>Fisher Idle</span><span>·</span><span>Game Store Simulator</span><span>·</span><span>Vending Machine Business Simulator</span><span>·</span><span>Homeless Life Simulator</span><span>·</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════ STUDIO ══════════════════ -->
+  <section id="studio" class="relative scroll-mt-16 py-20 sm:py-28">
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8">
+      <div class="grid lg:grid-cols-[minmax(0,.9fr)_minmax(0,1.1fr)] gap-12 lg:gap-20 items-start">
+
+        <div class="reveal">
+          <p class="wordmark text-[10px] c-brand" style="letter-spacing:.28em;" data-i18n="studio.eyebrow">The Studio</p>
+          <h2 class="display mt-3 text-[clamp(1.9rem,5.2vw,3.1rem)] font-bold leading-[1.02] tracking-[-.03em] c-text" data-i18n="studio.title">
+            We make small games that are hard to put down.
+          </h2>
+
+          <div class="mt-10 grid grid-cols-3 gap-4 sm:gap-6 max-w-md">
+            <div class="border-l-2 pl-4" style="border-color: var(--brand);">
+              <p class="display text-2xl sm:text-3xl font-bold c-text">5</p>
+              <p class="mt-1.5 wordmark text-[9px] c-dim2" style="letter-spacing:.14em; font-weight:500;" data-i18n="studio.stat.games">Titles shipped</p>
+            </div>
+            <div class="border-l-2 pl-4" style="border-color: var(--brand);">
+              <p class="display text-2xl sm:text-3xl font-bold c-text">17</p>
+              <p class="mt-1.5 wordmark text-[9px] c-dim2" style="letter-spacing:.14em; font-weight:500;" data-i18n="studio.stat.langs">Languages</p>
+            </div>
+            <div class="border-l-2 pl-4" style="border-color: var(--brand);">
+              <p class="display text-2xl sm:text-3xl font-bold c-text">PC</p>
+              <p class="mt-1.5 wordmark text-[9px] c-dim2" style="letter-spacing:.14em; font-weight:500;" data-i18n="studio.stat.platform">Steam / Windows</p>
+            </div>
           </div>
-          <p id="bp-long" class="text-sm text-latte leading-relaxed" data-i18n="boilerplate.long">Corner Market is a cozy idle simulation game where you run a small corner shop. Stock shelves, serve customers, hire staff, and expand your store while it sits at the corner of your screen. Built for multitaskers, Corner Market lets you grow your business from a tiny shop to a full supermarket, all while you watch videos, work, or browse. With Twitch integration, overlay mode, and support for 17 languages, Corner Market is designed to be your everyday companion. Published by Crow Interactive, coming to Steam in July 2026.</p>
+        </div>
+
+        <div class="reveal" data-d="1">
+          <div class="space-y-6 text-[15px] leading-relaxed c-dim">
+            <p data-i18n="studio.p1">
+              Crow Interactive is an independent game studio based in Turkey. We build compact simulation and idle games: corner shops, vending routes, fishing fleets, game stores. Systems you can read at a glance, and numbers you keep wanting to push a little higher.
+            </p>
+            <p data-i18n="studio.p2">
+              After years of making mobile games, the studio moved its full focus to PC to work on deeper, more personal projects. Everything we ship lands on Steam, aimed at players who keep a second window open while they work, watch, or wind down.
+            </p>
+            <p data-i18n="studio.p3">
+              Small team, short cycles, direct contact. If you have found a bug or want to cover one of our games, get in touch.
+            </p>
+          </div>
+
+          <div class="mt-10 p-6 border bd bg-panel rounded-[3px]">
+            <p class="wordmark text-[10px] c-brand" style="letter-spacing:.2em;" data-i18n="creator.title">Content creator policy</p>
+            <p class="mt-3 text-sm c-dim leading-relaxed" data-i18n="creator.text">
+              All of our games are fully open for content creators. Stream them, record Let's Plays, and monetise your content freely. No permission needed, no strings attached.
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="section-divider mx-auto max-w-6xl"></div>
+  <!-- ══════════════════ COMMUNITY ══════════════════ -->
+  <section id="community" class="relative scroll-mt-16 border-y bd overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(70% 130% at 50% 100%, var(--brand-soft), transparent 70%);"></div>
+    <div class="relative mx-auto max-w-[1400px] px-5 sm:px-8 py-20 sm:py-28 text-center">
+      <div class="reveal">
+        <p class="wordmark text-[10px] c-brand" style="letter-spacing:.28em;" data-i18n="community.eyebrow">Community</p>
+        <h2 class="display mt-4 text-[clamp(1.8rem,5.2vw,3rem)] font-bold leading-[1.05] tracking-[-.03em] c-text max-w-2xl mx-auto" data-i18n="community.title">
+          Feature requests, bug reports, early builds.
+        </h2>
+        <p class="mt-5 text-base c-dim max-w-lg mx-auto" data-i18n="community.sub">
+          Our Discord is where updates get announced first, and where most of the good ideas come from.
+        </p>
 
-  <!-- ═══ CONTACT ═══ -->
-  <section id="contact" class="mx-auto max-w-6xl px-4 sm:px-6 py-12 sm:py-20">
-    <h2 class="text-2xl sm:text-3xl font-bold" data-i18n="contact.title">Contact</h2>
-    <p class="mt-4 text-latte" data-i18n="contact.text">For press inquiries, partnership, and support:</p>
-    <div class="mt-6 flex flex-wrap items-center gap-3">
-      <a href="mailto:contact@crowinteractivegames.com"
-        class="px-4 py-2 rounded-xl bg-tangerine text-warmwhite font-semibold hover:bg-tangerine/90 transition-colors">contact@crowinteractivegames.com</a>
-      <a href="https://store.steampowered.com/developer/crow" target="_blank" rel="noreferrer"
-        class="px-4 py-2 rounded-xl border border-apricot/30 text-cocoa hover:border-apricot/60 transition-colors">
-        <span data-i18n="contact.publisher">Publisher Page</span>
-      </a>
-      <a href="https://discord.gg/nUbnxYNqUr" target="_blank" rel="noreferrer"
-        class="px-4 py-2 rounded-xl border border-apricot/30 text-cocoa hover:border-apricot/60 transition-colors discord-pulse">
-        <span data-i18n="contact.discord">Join Discord</span>
-      </a>
-    </div>
-
-    <!-- Review Copy Request -->
-    <div class="mt-8 bg-gradient-to-r from-tangerine/10 to-apricot/10 border border-apricot/20 rounded-2xl p-5">
-      <h3 class="text-base font-bold text-cocoa" data-i18n="contact.reviewcopy">🔑 Request a Review Key</h3>
-      <p class="mt-2 text-sm text-latte leading-relaxed" data-i18n="contact.reviewcopy.desc">Members of the press and content creators can request a review key by emailing us. Please include your outlet name, audience size, and any relevant links.</p>
-      <a href="mailto:contact@crowinteractivegames.com?subject=Corner%20Market%20Review%20Key%20Request"
-        class="mt-3 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-tangerine text-warmwhite font-semibold text-sm hover:bg-tangerine/90 transition-colors">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-        contact@crowinteractivegames.com
-      </a>
+        <div class="mt-9 flex flex-wrap items-center justify-center gap-3">
+          <a href="https://discord.gg/nUbnxYNqUr" target="_blank" rel="noreferrer" class="btn btn-primary led">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.32 4.57A19.79 19.79 0 0015.45 3c-.2.36-.44.85-.6 1.23a18.27 18.27 0 00-5.7 0A12.6 12.6 0 008.54 3a19.74 19.74 0 00-4.88 1.57C.55 9.2-.3 13.72.13 18.17a19.9 19.9 0 006.04 3.06c.49-.67.92-1.38 1.3-2.12-.71-.27-1.4-.6-2.04-.99.17-.13.34-.26.5-.4a14.2 14.2 0 0012.14 0c.16.14.33.27.5.4-.64.39-1.33.72-2.05.99.37.74.81 1.45 1.3 2.12a19.87 19.87 0 006.05-3.06c.5-5.16-.86-9.63-3.55-13.6zM8.02 15.45c-1.18 0-2.16-1.09-2.16-2.42s.95-2.43 2.16-2.43 2.18 1.1 2.16 2.43c0 1.33-.95 2.42-2.16 2.42zm7.96 0c-1.19 0-2.16-1.09-2.16-2.42s.95-2.43 2.16-2.43 2.18 1.1 2.16 2.43c0 1.33-.95 2.42-2.16 2.42z"/></svg>
+            <span data-i18n="community.cta">Join the Discord</span>
+          </a>
+          <a href="https://www.youtube.com/@CrowInteractive" target="_blank" rel="noreferrer" class="btn btn-ghost">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3.02 3.02 0 00-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 00.5 6.2 31.6 31.6 0 000 12a31.6 31.6 0 00.5 5.8 3.02 3.02 0 002.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 002.12-2.14A31.6 31.6 0 0024 12a31.6 31.6 0 00-.5-5.8zM9.55 15.57V8.43L15.82 12z"/></svg>
+            YouTube
+          </a>
+          <a href="https://x.com/Bedirhan_T0prak" target="_blank" rel="noreferrer" class="btn btn-ghost">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.65l-5.21-6.82-5.97 6.82H1.68l7.73-8.84L1.25 2.25h6.82l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.11z"/></svg>
+            X
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ═══ FOOTER ═══ -->
-  <footer class="border-t border-apricot/15">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 py-8 text-sm text-latte/70 flex flex-col sm:flex-row items-center justify-between gap-3">
-      <p>&copy; <span id="y"></span> Crow Interactive. <span data-i18n="footer.rights">All rights reserved.</span></p>
-      <div class="flex items-center gap-4">
-        <a class="hover:text-cocoa transition-colors" href="index.html" data-i18n="nav.presskit">Press Kit</a>
-        <a class="hover:text-cocoa transition-colors" href="games.html" data-i18n="nav.games">Games</a>
-        <a class="hover:text-cocoa transition-colors" href="#contact" data-i18n="contact.title">Contact</a>
+  <!-- ══════════════════ CONTACT ══════════════════ -->
+  <section id="contact" class="relative scroll-mt-16 py-20 sm:py-28">
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+
+        <div class="reveal">
+          <p class="wordmark text-[10px] c-brand" style="letter-spacing:.28em;" data-i18n="contact.eyebrow">Get in touch</p>
+          <h2 class="display mt-3 text-[clamp(2rem,6vw,3.5rem)] font-bold leading-[.95] tracking-[-.03em] c-text" data-i18n="contact.title">Contact</h2>
+          <p class="mt-6 text-[15px] c-dim leading-relaxed max-w-md" data-i18n="contact.sub">
+            Press, partnerships, publishing, support. One inbox, and we read all of it.
+          </p>
+          <a href="mailto:contact@crowinteractivegames.com" class="mt-8 inline-flex items-center gap-3 group">
+            <span class="display text-base sm:text-xl font-semibold tracking-[-.02em] c-text group-hover:c-brand transition-colors break-all">contact@crowinteractivegames.com</span>
+            <svg class="w-5 h-5 c-dim2 group-hover:c-brand transition-all group-hover:translate-x-1 shrink-0" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+
+        <div class="reveal" data-d="1">
+          <div class="border bd bg-panel rounded-[3px]">
+            <div class="p-6 sm:p-7">
+              <p class="wordmark text-[10px] c-brand" style="letter-spacing:.2em;" data-i18n="contact.press.title">Review keys &amp; press</p>
+              <p class="mt-3 text-sm c-dim leading-relaxed" data-i18n="contact.press.text">
+                Press and content creators can request a key by email. Include your outlet or channel, your audience size, and a link or two.
+              </p>
+              <a href="mailto:contact@crowinteractivegames.com?subject=Review%20Key%20Request" class="btn btn-ghost mt-5" data-i18n="contact.press.cta">Request a key</a>
+            </div>
+            <div class="p-6 sm:p-7 border-t bd">
+              <p class="wordmark text-[10px] c-brand" style="letter-spacing:.2em;" data-i18n="contact.kits.title">Press kits</p>
+              <p class="mt-3 text-sm c-dim leading-relaxed" data-i18n="contact.kits.text">
+                Logos, screenshots and key art for Corner Market and Vending Machine Business Simulator.
+              </p>
+              <div class="mt-5 flex flex-wrap gap-3">
+                <a href="https://drive.google.com/drive/folders/11fc_N7N8_fo6dFhyuxJiKEgt9C_92LCf?usp=sharing" target="_blank" rel="noreferrer" class="btn btn-ghost">Corner Market</a>
+                <a href="https://drive.google.com/drive/folders/1E_ccGgnvyawlSk2Wu53kXjSkAEf6eoaK" target="_blank" rel="noreferrer" class="btn btn-ghost">Vending Machine</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ FOOTER ══════════════════ -->
+  <footer class="border-t bd">
+    <div class="mx-auto max-w-[1400px] px-5 sm:px-8 py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-2.5">
+        <img src="Images/brand/symbol-reverse.png" alt="" class="logo-dark h-6 w-auto" />
+        <img src="Images/brand/symbol-primary.png" alt="" class="logo-light h-6 w-auto" />
+        <span class="wordmark text-xs c-dim">Crow Interactive</span>
+      </div>
+      <p class="text-xs c-dim2 order-last sm:order-none">
+        &copy; <span id="y"></span> Crow Interactive. <span data-i18n="footer.rights">All rights reserved.</span>
+      </p>
+      <div class="flex items-center gap-5 text-xs">
+        <a href="https://store.steampowered.com/developer/crow" target="_blank" rel="noreferrer" class="c-dim hover-text transition-colors">Steam</a>
+        <a href="https://discord.gg/nUbnxYNqUr" target="_blank" rel="noreferrer" class="c-dim hover-text transition-colors">Discord</a>
+        <a href="https://www.youtube.com/@CrowInteractive" target="_blank" rel="noreferrer" class="c-dim hover-text transition-colors">YouTube</a>
+        <a href="https://x.com/Bedirhan_T0prak" target="_blank" rel="noreferrer" class="c-dim hover-text transition-colors">X</a>
       </div>
     </div>
   </footer>
 
-  <!-- ═══ LIGHTBOX ═══ -->
-  <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
-    <button class="lightbox-arrow left" onclick="event.stopPropagation(); lbNav(-1)">❮</button>
-    <img id="lightboxImg" class="lightbox-main" src="" alt="Enlarged screenshot" />
-    <button class="lightbox-arrow right" onclick="event.stopPropagation(); lbNav(1)">❯</button>
-    <div id="lightboxThumbs" class="lightbox-thumbs"></div>
+  <!-- ══════════════════ LIGHTBOX ══════════════════ -->
+  <div id="lightbox" class="fixed inset-0 z-[70] items-center justify-center p-4 sm:p-8" style="background: rgba(0,0,0,.94);" role="dialog" aria-modal="true">
+    <button id="lbClose" class="absolute top-5 right-5 w-10 h-10 grid place-items-center rounded-[2px] border border-white/20 text-white/70 hover:text-white hover:border-white/50 transition-colors" aria-label="Close">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <button id="lbPrev" class="absolute left-3 sm:left-6 w-11 h-11 grid place-items-center rounded-[2px] border border-white/20 text-white/70 hover:text-white hover:border-white/50 transition-colors" aria-label="Previous image">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <button id="lbNext" class="absolute right-3 sm:right-6 w-11 h-11 grid place-items-center rounded-[2px] border border-white/20 text-white/70 hover:text-white hover:border-white/50 transition-colors" aria-label="Next image">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+    <figure class="max-w-6xl w-full">
+      <img id="lbImg" src="" alt="" class="w-full h-auto max-h-[80vh] object-contain rounded-[3px]" />
+      <figcaption id="lbCap" class="mt-4 text-center text-[11px] text-white/50 wordmark" style="letter-spacing:.18em;"></figcaption>
+    </figure>
   </div>
 
-  <!-- Scripts -->
+  <script src="games-data.js"></script>
   <script src="lang.js"></script>
-  <script>
-    // Year
-    (function () {
-      var yEl = document.getElementById('y');
-      if (yEl) yEl.textContent = new Date().getFullYear();
-    })();
-
-    // Mobile menu toggle
-    (function () {
-      var mb = document.getElementById('menuBtn');
-      var mn = document.getElementById('mobileNav');
-      if (mb && mn) mb.addEventListener('click', function () { mn.classList.toggle('hidden'); });
-    })();
-
-    // ── Language dropdown (click-based) ──
-    (function () {
-      var wrapper = document.querySelector('.lang-wrapper');
-      var btn = document.getElementById('langBtn');
-      var dd = wrapper ? wrapper.querySelector('.lang-dropdown') : null;
-      if (!btn || !dd) return;
-      btn.addEventListener('click', function (e) {
-        e.stopPropagation();
-        dd.classList.toggle('open');
-      });
-      document.addEventListener('click', function () { dd.classList.remove('open'); });
-      dd.addEventListener('click', function (e) { e.stopPropagation(); });
-    })();
-
-    // Boilerplate copy helper
-    function copyBoilerplate(type) {
-      var el = document.getElementById('bp-' + type);
-      if (!el) return;
-      var text = el.textContent.trim();
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(function () {
-          showCopyFeedback(el);
-        });
-      } else {
-        var ta = document.createElement('textarea');
-        ta.value = text;
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand('copy');
-        document.body.removeChild(ta);
-        showCopyFeedback(el);
-      }
-    }
-    function showCopyFeedback(el) {
-      var btn = el.parentElement.querySelector('button');
-      if (!btn) return;
-      var orig = btn.textContent;
-      btn.textContent = '✓';
-      btn.classList.add('bg-green-100', 'text-green-600');
-      setTimeout(function () {
-        btn.textContent = orig;
-        btn.classList.remove('bg-green-100', 'text-green-600');
-      }, 1500);
-    }
-
-    // Language switcher UI helper
-    var langFlags = { en: '🇺🇸', ko: '🇰🇷', zh: '🇨🇳', ja: '🇯🇵' };
-    function switchLang(lang) {
-      setLanguage(lang);
-      var flagEl = document.getElementById('langFlag');
-      var codeEl = document.getElementById('langCode');
-      if (flagEl) flagEl.textContent = langFlags[lang] || '🇺🇸';
-      if (codeEl) codeEl.textContent = lang.toUpperCase();
-      // close dropdown
-      var dd = document.querySelector('.lang-dropdown');
-      if (dd) dd.classList.remove('open');
-    }
-
-    // Update flag on load
-    (function () {
-      var stored = localStorage.getItem('site-lang');
-      var lang = (stored && ['en','ko','zh','ja'].indexOf(stored) !== -1) ? stored : 'en';
-      var flagEl = document.getElementById('langFlag');
-      var codeEl = document.getElementById('langCode');
-      if (flagEl) flagEl.textContent = langFlags[lang] || '🇺🇸';
-      if (codeEl) codeEl.textContent = lang.toUpperCase();
-    })();
-
-    // ── Lightbox with arrows + thumbnails ──
-    var lbScreenshots = [
-      'Images/screenshots/sc1.png',
-      'Images/screenshots/sc2.png',
-      'Images/screenshots/sc3.png',
-      'Images/screenshots/sc4.png',
-      'Images/screenshots/sc5.png',
-      'Images/screenshots/sc6.png'
-    ];
-    var lbIndex = 0;
-
-    function buildThumbs() {
-      var container = document.getElementById('lightboxThumbs');
-      if (!container || container.children.length) return;
-      lbScreenshots.forEach(function (src, i) {
-        var img = document.createElement('img');
-        img.src = src;
-        img.className = 'lightbox-thumb';
-        img.alt = 'Thumb ' + (i + 1);
-        img.onclick = function (e) { e.stopPropagation(); lbGo(i); };
-        container.appendChild(img);
-      });
-    }
-
-    function lbGo(i) {
-      lbIndex = ((i % lbScreenshots.length) + lbScreenshots.length) % lbScreenshots.length;
-      var img = document.getElementById('lightboxImg');
-      if (img) img.src = lbScreenshots[lbIndex];
-      // update thumb highlights
-      var thumbs = document.querySelectorAll('.lightbox-thumb');
-      thumbs.forEach(function (t, idx) {
-        t.classList.toggle('active', idx === lbIndex);
-      });
-    }
-
-    function lbNav(dir) { lbGo(lbIndex + dir); }
-
-    function openLightbox(index) {
-      buildThumbs();
-      lbGo(index);
-      var lb = document.getElementById('lightbox');
-      if (lb) lb.classList.add('active');
-    }
-
-    function closeLightbox(e) {
-      if (e && e.target && (e.target.classList.contains('lightbox-main') || e.target.classList.contains('lightbox-thumb'))) return;
-      var lb = document.getElementById('lightbox');
-      if (lb) lb.classList.remove('active');
-    }
-
-    document.addEventListener('keydown', function (e) {
-      var lb = document.getElementById('lightbox');
-      if (!lb || !lb.classList.contains('active')) return;
-      if (e.key === 'Escape') { lb.classList.remove('active'); }
-      else if (e.key === 'ArrowLeft') { lbNav(-1); }
-      else if (e.key === 'ArrowRight') { lbNav(1); }
-    });
-  </script>
-
+  <script src="app.js"></script>
 </body>
 
 </html>

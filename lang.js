@@ -1,329 +1,308 @@
-/**
- * Corner Market Presskit — Localization System
- * Supports: EN (default), KO, ZH, JA
- * Uses navigator.language for auto-detection, localStorage for persistence.
- */
+/* ─────────────────────────────────────────────────────────────
+   Crow Interactive :: i18n
+   Elements opt in with  data-i18n="key".
+   setLanguage(code) swaps every string and stores the choice.
+   ───────────────────────────────────────────────────────────── */
 
-const SUPPORTED_LANGS = ['en', 'ko', 'zh', 'ja'];
-const DEFAULT_LANG = 'en';
-
-const LANG_TO_TITLE_FOLDER = {
-  en: 'english',
-  ko: 'korean',
-  zh: 'simplified_chinese',
-  ja: 'japanese'
-};
+const LANGS = ['en', 'ko', 'zh', 'ja'];
 
 const translations = {
-  /* ───────── NAV ───────── */
-  'nav.presskit':   { en: 'Press Kit', ko: '프레스 키트', zh: '新闻资料', ja: 'プレスキット' },
-  'nav.games':      { en: 'Games', ko: '게임', zh: '游戏', ja: 'ゲーム' },
 
-  /* ───────── HERO ───────── */
-  'hero.description': {
-    en: 'A relaxing idle market simulator that sits at the corner of your screen while you do other things.',
-    ko: '다른 일을 하는 동안 화면 한쪽에서 돌아가는 힐링 방치형 마켓 시뮬레이터.',
-    zh: '一款轻松的挂机市场模拟游戏，在你做其他事情时待在屏幕角落。',
-    ja: '他の作業をしながら画面の片隅で楽しめる、のんびり放置系マーケットシミュレーター。'
-  },
-  'hero.wishlist':    { en: 'Wishlist on Steam', ko: 'Steam 위시리스트', zh: 'Steam 愿望单', ja: 'Steamウィッシュリスト' },
-  'hero.presskit':    { en: 'Download Press Kit', ko: '프레스 키트 다운로드', zh: '下载新闻资料包', ja: 'プレスキットをダウンロード' },
+  /* ══════════════════ ENGLISH ══════════════════ */
+  en: {
+    'nav.games': 'Games',
+    'nav.studio': 'Studio',
+    'nav.community': 'Community',
+    'nav.contact': 'Contact',
 
-  /* ───────── FACTSHEET ───────── */
-  'fact.title':       { en: 'Factsheet', ko: '팩트시트', zh: '概况', ja: 'ファクトシート' },
-  'fact.developer':   { en: 'Developer', ko: '개발사', zh: '开发商', ja: '開発元' },
-  'fact.publisher':   { en: 'Publisher', ko: '퍼블리셔', zh: '发行商', ja: 'パブリッシャー' },
-  'fact.platform':    { en: 'Platform', ko: '플랫폼', zh: '平台', ja: 'プラットフォーム' },
-  'fact.genre':       { en: 'Genre', ko: '장르', zh: '类型', ja: 'ジャンル' },
-  'fact.genre.val':   { en: 'Idle / Simulation / Management', ko: '방치형 / 시뮬레이션 / 경영', zh: '放置 / 模拟 / 经营', ja: '放置系 / シミュレーション / 経営' },
-  'fact.release':     { en: 'Release Date', ko: '출시일', zh: '发售日期', ja: '発売日' },
-  'fact.release.val': { en: 'July 2026', ko: '2026년 7월', zh: '2026年7月', ja: '2026年7月' },
-  'fact.price':       { en: 'Price', ko: '가격', zh: '价格', ja: '価格' },
-  'fact.price.val':   { en: 'TBA', ko: '미정', zh: '待定', ja: '未定' },
-  'fact.contact':     { en: 'Contact', ko: '연락처', zh: '联系方式', ja: 'お問い合わせ' },
-  'fact.languages':   { en: 'Languages', ko: '지원 언어', zh: '语言支持', ja: '対応言語' },
-  'fact.languages.val': {
-    en: '17 languages (full text localization)',
-    ko: '17개 언어 (전체 텍스트 현지화)',
-    zh: '17种语言（全文本本地化）',
-    ja: '17言語（フルテキストローカライズ）'
-  },
-  'fact.sysreq':      { en: 'Minimum System Requirements', ko: '최소 시스템 요구 사양', zh: '最低系统要求', ja: '最低システム要件' },
-  'fact.languages.toggle': { en: 'Show all', ko: '모두 보기', zh: '查看全部', ja: 'すべて表示' },
+    'hero.tag': 'Independent game studio · Turkey',
+    'hero.sub': 'Compact simulation and idle games, built to sit alongside your day instead of taking it over.',
+    'hero.cta.games': 'View the games',
+    'hero.cta.steam': 'Steam page',
+    'hero.scroll': 'Scroll',
 
-  /* ───────── ABOUT ───────── */
-  'about.title': { en: 'About the Game', ko: '게임 소개', zh: '游戏简介', ja: 'ゲーム紹介' },
-  'about.text': {
-    en: 'Corner Market is a cozy idle simulation game where you run a small corner shop. Stock shelves, serve customers, expand your store, and watch your little market thrive, all while you go about your day. Perfect for multitaskers who love gentle progression.',
-    ko: 'Corner Market은 작은 구멍가게를 운영하는 아늑한 방치형 시뮬레이션 게임입니다. 진열대를 채우고, 손님을 맞이하고, 가게를 확장하며 당신의 작은 마켓이 번창하는 모습을 지켜보세요. 일상 속에서 즐기기 완벽한 게임입니다.',
-    zh: 'Corner Market 是一款温馨的挂机模拟游戏，你将经营一家小小的街角商店。上架商品、接待顾客、扩展店面，看着你的小市场蓬勃发展，一切都在你忙碌的日常中进行。',
-    ja: 'Corner Marketは、小さな角のお店を経営するほのぼの放置系シミュレーションゲームです。棚に商品を並べ、お客さんを迎え、お店を拡大して、あなたの小さなマーケットが繁盛する様子を見守りましょう。'
-  },
+    'games.eyebrow': 'Catalogue',
+    'games.title': 'Games',
+    'games.sub': 'Five titles on Steam. Shops, machines, boats, and the numbers behind them.',
 
-  /* ───────── FEATURES ───────── */
-  'features.title': { en: 'Features', ko: '특징', zh: '特色', ja: '特徴' },
-  'feature.1': {
-    en: 'Idle gameplay, your shop runs even when minimized',
-    ko: '방치형 플레이, 최소화해도 가게가 운영됩니다',
-    zh: '挂机玩法，最小化后店铺也在运营',
-    ja: '放置プレイ、最小化してもお店は営業中'
-  },
-  'feature.2': {
-    en: 'Stock shelves, manage inventory, and set prices',
-    ko: '진열대 관리, 재고 관리, 가격 설정',
-    zh: '上架商品、管理库存、设定价格',
-    ja: '商品陳列・在庫管理・価格設定'
-  },
-  'feature.3': {
-    en: 'Expand and customize your corner market',
-    ko: '구멍가게를 확장하고 꾸미세요',
-    zh: '扩展并自定义你的街角商店',
-    ja: 'お店を拡張してカスタマイズ'
-  },
-  'feature.5': {
-    en: 'Cozy pixel art aesthetic with relaxing soundtrack',
-    ko: '아늑한 픽셀 아트와 편안한 사운드트랙',
-    zh: '温馨像素风美术与轻松的背景音乐',
-    ja: 'ほのぼのピクセルアートとリラックスBGM'
-  },
-  'feature.6': {
-    en: 'Overlay mode, play while watching videos or working',
-    ko: '오버레이 모드, 영상 시청이나 작업 중에도 플레이',
-    zh: '悬浮窗模式，边看视频边玩',
-    ja: 'オーバーレイモード、動画視聴や作業をしながらプレイ'
+    'game.corner-market.desc': 'A relaxing idle market simulator that sits in the corner of your screen. Stock the shelves, serve customers, hire staff, and grow a tiny shop into a full supermarket while you get on with your day.',
+    'game.fisher-idle.desc': 'You start with one small boat in the middle of the ocean. Fish, upgrade, and buy more hulls until you are running a whole fleet, because more fish means more gold.',
+    'game.game-store-sim.desc': 'Run your own game store. Buy stock, haul the cargo in yourself, set the prices, and turn a cramped little shop into the best place in town to buy games.',
+    'game.vending-machine.desc': 'Build a vending empire one machine at a time. Rent locations, manage the supply chain, tune your prices to demand, and watch the routes turn profitable.',
+    'game.homeless-life.desc': 'You have lost everything. Survive on the streets, rebuild piece by piece, and find out how far back up you can climb.',
+
+    'tag.idle': 'Idle',
+    'tag.simulation': 'Simulation',
+    'tag.casual': 'Casual',
+    'tag.adventure': 'Adventure',
+    'tag.management': 'Management',
+    'tag.indie': 'Indie',
+    'tag.survival': 'Survival',
+
+    'game.steam': 'View on Steam',
+    'game.presskit': 'Press kit',
+    'meta.platform': 'Windows · Steam',
+
+    'studio.eyebrow': 'The Studio',
+    'studio.title': 'We make small games that are hard to put down.',
+    'studio.stat.games': 'Titles shipped',
+    'studio.stat.langs': 'Languages',
+    'studio.stat.platform': 'Steam / Windows',
+    'studio.p1': 'Crow Interactive is an independent game studio based in Turkey. We build compact simulation and idle games: corner shops, vending routes, fishing fleets, game stores. Systems you can read at a glance, and numbers you keep wanting to push a little higher.',
+    'studio.p2': 'After years of making mobile games, the studio moved its full focus to PC to work on deeper, more personal projects. Everything we ship lands on Steam, aimed at players who keep a second window open while they work, watch, or wind down.',
+    'studio.p3': 'Small team, short cycles, direct contact. If you have found a bug or want to cover one of our games, get in touch.',
+
+    'creator.title': 'Content creator policy',
+    'creator.text': 'All of our games are fully open for content creators. Stream them, record Let’s Plays, and monetise your content freely. No permission needed, no strings attached.',
+
+    'community.eyebrow': 'Community',
+    'community.title': 'Feature requests, bug reports, early builds.',
+    'community.sub': 'Our Discord is where updates get announced first, and where most of the good ideas come from.',
+    'community.cta': 'Join the Discord',
+
+    'contact.eyebrow': 'Get in touch',
+    'contact.title': 'Contact',
+    'contact.sub': 'Press, partnerships, publishing, support. One inbox, and we read all of it.',
+    'contact.press.title': 'Review keys & press',
+    'contact.press.text': 'Press and content creators can request a key by email. Include your outlet or channel, your audience size, and a link or two.',
+    'contact.press.cta': 'Request a key',
+    'contact.kits.title': 'Press kits',
+    'contact.kits.text': 'Logos, screenshots and key art for Corner Market and Vending Machine Business Simulator.',
+
+    'footer.rights': 'All rights reserved.'
   },
 
-  /* ───────── SCREENSHOTS ───────── */
-  'screenshots.title': { en: 'Screenshots', ko: '스크린샷', zh: '截图', ja: 'スクリーンショット' },
+  /* ══════════════════ KOREAN ══════════════════ */
+  ko: {
+    'nav.games': '게임',
+    'nav.studio': '스튜디오',
+    'nav.community': '커뮤니티',
+    'nav.contact': '문의',
 
-  /* ───────── GIFS ───────── */
-  'gifs.title': { en: 'GIFs', ko: 'GIF', zh: '动图', ja: 'GIF' },
+    'hero.tag': '인디 게임 스튜디오 · 튀르키예',
+    'hero.sub': '하루를 통째로 빼앗지 않고 일상 옆에 조용히 놓이도록 만든, 간결한 시뮬레이션·방치형 게임.',
+    'hero.cta.games': '게임 보기',
+    'hero.cta.steam': 'Steam 페이지',
+    'hero.scroll': '스크롤',
 
-  /* ───────── VIDEO ───────── */
-  'video.title': { en: 'Video', ko: '영상', zh: '视频', ja: '動画' },
+    'games.eyebrow': '카탈로그',
+    'games.title': '게임',
+    'games.sub': 'Steam에 출시된 다섯 작품. 가게, 자판기, 배, 그리고 그 뒤의 숫자들.',
 
-  /* ───────── BRANDING ───────── */
-  'branding.title': { en: 'Logo & Branding', ko: '로고 & 브랜딩', zh: '标志与品牌', ja: 'ロゴ＆ブランド' },
-  'branding.download': { en: 'Download all assets (Google Drive)', ko: '모든 에셋 다운로드 (Google Drive)', zh: '下载所有素材（Google Drive）', ja: '全素材をダウンロード（Google Drive）' },
-  'branding.game': { en: 'Game Logo', ko: '게임 로고', zh: '游戏标志', ja: 'ゲームロゴ' },
-  'branding.studio': { en: 'Studio Logo', ko: '스튜디오 로고', zh: '工作室标志', ja: 'スタジオロゴ' },
+    'game.corner-market.desc': '화면 한구석에서 돌아가는 편안한 방치형 마켓 시뮬레이터. 진열대를 채우고, 손님을 응대하고, 직원을 고용하며 작은 가게를 대형 마트로 키워보세요. 그동안 당신은 하던 일을 계속하면 됩니다.',
+    'game.fisher-idle.desc': '망망대해 한가운데, 작은 배 한 척으로 시작합니다. 물고기를 낚고, 배를 업그레이드하고, 선단을 늘려 어엿한 선단주가 되어보세요. 물고기가 많을수록 금화도 늘어납니다.',
+    'game.game-store-sim.desc': '나만의 게임 가게를 운영하세요. 재고를 사들이고, 직접 화물을 실어 나르고, 가격을 정해 좁은 가게를 동네 최고의 게임 매장으로 키웁니다.',
+    'game.vending-machine.desc': '자판기 한 대에서 시작하는 유통 사업. 자리를 임대하고, 공급망을 관리하고, 수요에 맞춰 가격을 조정하며 수익이 나는 노선을 만들어 가세요.',
+    'game.homeless-life.desc': '모든 것을 잃었습니다. 거리에서 살아남고, 하나씩 다시 쌓아 올리며 어디까지 올라갈 수 있는지 확인하세요.',
 
-  /* ───────── CONTACT ───────── */
-  'contact.title':    { en: 'Contact', ko: '연락처', zh: '联系我们', ja: 'お問い合わせ' },
-  'contact.text': {
-    en: 'For press inquiries, partnership, and support:',
-    ko: '언론 문의, 파트너십 및 지원:',
-    zh: '媒体咨询、合作与支持：',
-    ja: 'プレスのお問い合わせ、提携、サポート：'
-  },
-  'contact.discord': { en: 'Join Discord', ko: 'Discord 참여', zh: '加入 Discord', ja: 'Discordに参加' },
-  'contact.publisher': { en: 'Publisher Page', ko: '퍼블리셔 페이지', zh: '发行商页面', ja: 'パブリッシャーページ' },
-  'contact.reviewcopy': {
-    en: '🔑 Request a Review Key',
-    ko: '🔑 리뷰 키 요청',
-    zh: '🔑 申请评测密钥',
-    ja: '🔑 レビューキーのリクエスト'
-  },
-  'contact.reviewcopy.desc': {
-    en: 'Members of the press and content creators can request a review key by emailing us. Please include your outlet name, audience size, and any relevant links.',
-    ko: '언론 관계자 및 콘텐츠 크리에이터는 이메일로 리뷰 키를 요청할 수 있습니다. 소속 매체명, 구독자 수, 관련 링크를 함께 보내주세요.',
-    zh: '媒体记者和内容创作者可通过邮件申请评测密钥。请附上您的媒体名称、受众规模及相关链接。',
-    ja: 'プレス関係者やコンテンツクリエイターは、メールでレビューキーをリクエストできます。媒体名、視聴者数、関連リンクをお知らせください。'
-  },
+    'tag.idle': '방치형',
+    'tag.simulation': '시뮬레이션',
+    'tag.casual': '캐주얼',
+    'tag.adventure': '어드벤처',
+    'tag.management': '경영',
+    'tag.indie': '인디',
+    'tag.survival': '생존',
 
-  /* ───────── FOOTER ───────── */
-  'footer.rights': { en: 'All rights reserved.', ko: 'All rights reserved.', zh: '保留所有权利。', ja: 'All rights reserved.' },
+    'game.steam': 'Steam에서 보기',
+    'game.presskit': '프레스킷',
+    'meta.platform': 'Windows · Steam',
 
-  /* ───────── ABOUT THE DEVELOPER ───────── */
-  'dev.title': { en: 'About Crow Interactive', ko: 'Crow Interactive 소개', zh: '关于 Crow Interactive', ja: 'Crow Interactive について' },
-  'dev.text': {
-    en: 'Crow Interactive is an independent video game studio based in Turkey. After years of developing mobile games, the studio shifted its full focus to PC to pursue a long-held passion for deeper, more personal projects. Corner Market is the latest title from Crow Interactive, alongside Vending Machine Business Simulator and Game Store Simulator, all available on Steam.',
-    ko: 'Crow Interactive는 터키에 기반을 둔 독립 비디오 게임 스튜디오입니다. 수년간 모바일 게임을 개발한 뒤, 더 깊이 있고 개인적인 프로젝트를 향한 오랜 열정을 쫓아 PC 개발에 전념하게 되었습니다. Corner Market은 Vending Machine Business Simulator, Game Store Simulator와 함께 Steam에서 만나볼 수 있는 Crow Interactive의 최신 타이틀입니다.',
-    zh: 'Crow Interactive 是一家位于土耳其的独立电子游戏工作室。在多年的手游开发经历后，工作室将全部精力转向 PC，追求更深度、更个人化的项目。Corner Market 是 Crow Interactive 的最新作品，此前还有 Vending Machine Business Simulator 和 Game Store Simulator，均已上架 Steam。',
-    ja: 'Crow Interactive はトルコを拠点とするインディーゲームスタジオです。長年のモバイルゲーム開発を経て、より深く、よりパーソナルな作品づくりへの情熱を追い求め、PC開発に全力を注いでいます。Corner Market は Vending Machine Business Simulator、Game Store Simulator に続く最新タイトルで、すべて Steam で配信中です。'
-  },
+    'studio.eyebrow': '스튜디오',
+    'studio.title': '손에서 놓기 어려운 작은 게임을 만듭니다.',
+    'studio.stat.games': '출시작',
+    'studio.stat.langs': '지원 언어',
+    'studio.stat.platform': 'Steam / Windows',
+    'studio.p1': 'Crow Interactive는 튀르키예에 기반을 둔 인디 게임 스튜디오입니다. 동네 가게, 자판기 노선, 어선단, 게임 매장 같은 간결한 시뮬레이션·방치형 게임을 만듭니다. 한눈에 읽히는 시스템과, 자꾸 조금 더 올리고 싶어지는 숫자가 저희가 신경 쓰는 부분입니다.',
+    'studio.p2': '수년간 모바일 게임을 만든 뒤, 스튜디오는 더 깊고 개인적인 프로젝트를 위해 PC로 완전히 방향을 옮겼습니다. 저희가 내놓는 모든 작품은 Steam에 출시되며, 일하거나 영상을 보거나 쉬는 동안 창 하나를 더 띄워 두는 플레이어를 향합니다.',
+    'studio.p3': '작은 팀, 짧은 개발 주기, 직접적인 소통. 버그를 발견하셨거나 저희 게임을 다루고 싶으시다면 언제든 연락 주세요.',
 
-  /* ───────── CONTENT CREATOR POLICY ───────── */
-  'creator.title': {
-    en: '🎬 Content Creator Policy:',
-    ko: '🎬 콘텐츠 크리에이터 정책:',
-    zh: '🎬 内容创作者政策：',
-    ja: '🎬 コンテンツクリエイターポリシー：'
-  },
-  'creator.text': {
-    en: ' Corner Market is fully open for content creators. You are free to stream, record Let\'s Play videos, and monetize your content without any restrictions.',
-    ko: ' Corner Market은 콘텐츠 크리에이터에게 완전히 열려 있습니다. 스트리밍, Let\'s Play 영상 녹화, 수익 창출 모두 제한 없이 자유롭게 하실 수 있습니다.',
-    zh: ' Corner Market 对内容创作者完全开放。你可以自由直播、录制实况视频并从中获利，没有任何限制。',
-    ja: ' Corner Market はコンテンツクリエイターに完全開放されています。配信、実況動画の録画、収益化をいかなる制限もなく自由に行えます。'
-  },
+    'creator.title': '콘텐츠 크리에이터 정책',
+    'creator.text': '저희의 모든 게임은 콘텐츠 크리에이터에게 완전히 열려 있습니다. 방송하고, 플레이 영상을 찍고, 자유롭게 수익을 창출하세요. 별도의 허가나 조건은 없습니다.',
 
-  /* ───────── BOILERPLATE ───────── */
-  'boilerplate.title': { en: 'Quick Copy Descriptions', ko: '빠른 복사 설명문', zh: '快速复制描述', ja: 'コピー用テキスト' },
-  'boilerplate.copy': { en: 'Copy', ko: '복사', zh: '复制', ja: 'コピー' },
-  'boilerplate.short': {
-    en: 'Corner Market is a cozy idle simulation game where you run a small corner shop at the edge of your screen while you go about your day.',
-    ko: 'Corner Market은 일상을 보내면서 화면 한쪽에서 작은 구멍가게를 운영하는 아늑한 방치형 시뮬레이션 게임입니다.',
-    zh: 'Corner Market 是一款温馨的挂机模拟游戏，让你在日常生活中于屏幕角落经营一家小小的街角商店。',
-    ja: 'Corner Marketは、日常の作業をしながら画面の片隅で小さな角のお店を経営する、ほのぼの放置系シミュレーションゲームです。'
-  },
-  'boilerplate.long': {
-    en: 'Corner Market is a cozy idle simulation game where you run a small corner shop. Stock shelves, serve customers, hire staff, and expand your store while it sits at the corner of your screen. Built for multitaskers, Corner Market lets you grow your business from a tiny shop to a full supermarket, all while you watch videos, work, or browse. With Twitch integration, overlay mode, and support for 17 languages, Corner Market is designed to be your everyday companion. Published by Crow Interactive, coming to Steam in July 2026.',
-    ko: 'Corner Market은 작은 구멍가게를 운영하는 아늑한 방치형 시뮬레이션 게임입니다. 진열대를 채우고, 손님을 맞이하고, 직원을 고용하고, 화면 한쪽에서 가게를 확장하세요. 멀티태스커를 위해 만들어진 Corner Market은 영상을 보거나, 일을 하거나, 인터넷을 하면서도 작은 가게에서 대형 슈퍼마켓으로 성장시킬 수 있습니다. Twitch 연동, 오버레이 모드, 17개 언어 지원으로 매일 함께할 수 있는 게임입니다. Crow Interactive 퍼블리싱, 2026년 7월 Steam 출시 예정.',
-    zh: 'Corner Market 是一款温馨的挂机模拟游戏，你将经营一家街角小店。上架商品、接待顾客、雇佣员工、扩展店面，所有这些都在屏幕角落进行。专为多任务处理者打造，Corner Market 让你在看视频、工作或浏览网页的同时，将小店发展成大型超市。支持 Twitch 集成、悬浮窗模式和17种语言，Corner Market 是你的日常伴侣。由 Crow Interactive 发行，2026年7月登陆 Steam。',
-    ja: 'Corner Marketは、小さな角のお店を経営するほのぼの放置系シミュレーションゲームです。商品を陳列し、お客さんを迎え、スタッフを雇い、画面の片隅でお店を拡大していきます。マルチタスカーのために作られたCorner Marketは、動画視聴や仕事、ブラウジングをしながら、小さなお店をスーパーマーケットに成長させることができます。Twitch連携、オーバーレイモード、17言語対応で、毎日の相棒として設計されています。Crow Interactive より2026年7月Steam配信予定。'
+    'community.eyebrow': '커뮤니티',
+    'community.title': '기능 제안, 버그 제보, 얼리 빌드.',
+    'community.sub': '업데이트 소식이 가장 먼저 올라오고, 좋은 아이디어 대부분이 나오는 곳이 저희 Discord입니다.',
+    'community.cta': 'Discord 참여하기',
+
+    'contact.eyebrow': '연락하기',
+    'contact.title': '문의',
+    'contact.sub': '언론, 협업, 퍼블리싱, 지원. 메일함은 하나이고, 전부 읽습니다.',
+    'contact.press.title': '리뷰 키 & 언론',
+    'contact.press.text': '언론 관계자와 콘텐츠 크리에이터는 이메일로 리뷰 키를 요청할 수 있습니다. 매체 또는 채널명, 구독자 규모, 관련 링크를 함께 보내주세요.',
+    'contact.press.cta': '리뷰 키 요청',
+    'contact.kits.title': '프레스킷',
+    'contact.kits.text': 'Corner Market과 Vending Machine Business Simulator의 로고, 스크린샷, 키 아트.',
+
+    'footer.rights': '모든 권리 보유.'
   },
 
-  /* ───────── GAMES PAGE ───────── */
-  'games.title':    { en: 'Our Games', ko: '우리의 게임', zh: '我们的游戏', ja: '私たちのゲーム' },
-  'games.subtitle': { en: 'Steam links and press kits below', ko: '아래에서 Steam 링크와 프레스 키트를 확인하세요', zh: '以下是 Steam 链接和新闻资料包', ja: '以下にSteamリンクとプレスキットがあります' },
+  /* ══════════════════ SIMPLIFIED CHINESE ══════════════════ */
+  zh: {
+    'nav.games': '游戏',
+    'nav.studio': '工作室',
+    'nav.community': '社区',
+    'nav.contact': '联系',
 
-  'game.cm.title': { en: 'Corner Market', ko: 'Corner Market', zh: 'Corner Market', ja: 'Corner Market' },
-  'game.cm.desc': {
-    en: 'A relaxing idle market simulator that sits at the corner of your screen while you do other things.',
-    ko: '다른 일을 하는 동안 화면 한쪽에서 돌아가는 힐링 방치형 마켓 시뮬레이터.',
-    zh: '一款轻松的挂机市场模拟游戏，在你做其他事情时待在屏幕角落。',
-    ja: '他の作業をしながら画面の片隅で楽しめる、のんびり放置系マーケットシミュレーター。'
+    'hero.tag': '独立游戏工作室 · 土耳其',
+    'hero.sub': '小体量的模拟与放置类游戏，陪着你的一天，而不是占满它。',
+    'hero.cta.games': '查看游戏',
+    'hero.cta.steam': 'Steam 页面',
+    'hero.scroll': '向下滚动',
+
+    'games.eyebrow': '作品目录',
+    'games.title': '游戏',
+    'games.sub': '五款 Steam 作品。商店、自动售货机、渔船，以及它们背后的数字。',
+
+    'game.corner-market.desc': '一款轻松的放置类商店经营模拟游戏，就待在屏幕角落里。补货、招待顾客、雇佣员工，把小小的便利店一路做成大型超市，而你照常忙自己的事。',
+    'game.fisher-idle.desc': '一开始，你在大海中央只有一条小船。撒网、升级、添置新船，直到你手下有了一整支船队。鱼越多，金币越多。',
+    'game.game-store-sim.desc': '经营属于你的游戏商店。进货、亲自把货拉回来、定价，把一间狭小的店铺变成全城最好的游戏卖场。',
+    'game.vending-machine.desc': '从一台机器开始，做起你的自动售货生意。租下点位、管理供应链、按需求调整价格，看着一条条线路变得有利可图。',
+    'game.homeless-life.desc': '你失去了一切。在街头活下去，一点一点重建生活，看看自己能爬回多高。',
+
+    'tag.idle': '放置',
+    'tag.simulation': '模拟',
+    'tag.casual': '休闲',
+    'tag.adventure': '冒险',
+    'tag.management': '经营',
+    'tag.indie': '独立',
+    'tag.survival': '生存',
+
+    'game.steam': '在 Steam 查看',
+    'game.presskit': '媒体资料包',
+    'meta.platform': 'Windows · Steam',
+
+    'studio.eyebrow': '关于工作室',
+    'studio.title': '我们做的是让人放不下的小游戏。',
+    'studio.stat.games': '已发行作品',
+    'studio.stat.langs': '支持语言',
+    'studio.stat.platform': 'Steam / Windows',
+    'studio.p1': 'Crow Interactive 是一家位于土耳其的独立游戏工作室。我们制作小体量的模拟与放置类游戏：街角小店、售货机线路、渔船队、游戏商店。系统一眼就能看懂，数字则让人忍不住想再往上推一点。',
+    'studio.p2': '在做了多年手机游戏之后，工作室把全部精力转向 PC，去做更深入、更个人化的项目。我们的每一款作品都在 Steam 上发行，面向那些在工作、看视频或放松时会多开一个窗口的玩家。',
+    'studio.p3': '小团队、短周期、直接沟通。如果你发现了 bug，或者想报道我们的游戏，随时欢迎联系。',
+
+    'creator.title': '内容创作者政策',
+    'creator.text': '我们所有的游戏都对内容创作者完全开放。可以直播、录制实况视频，并自由地进行内容变现。无需申请，也没有附加条件。',
+
+    'community.eyebrow': '社区',
+    'community.title': '功能建议、bug 反馈、抢先体验版本。',
+    'community.sub': '更新会最先在我们的 Discord 公布，大部分好点子也来自那里。',
+    'community.cta': '加入 Discord',
+
+    'contact.eyebrow': '联系我们',
+    'contact.title': '联系',
+    'contact.sub': '媒体、合作、发行、支持，都在同一个信箱，而且我们全都会看。',
+    'contact.press.title': '评测密钥与媒体',
+    'contact.press.text': '媒体与内容创作者可通过邮件申请评测密钥。请附上媒体或频道名称、受众规模，以及一两个相关链接。',
+    'contact.press.cta': '申请密钥',
+    'contact.kits.title': '媒体资料包',
+    'contact.kits.text': 'Corner Market 与 Vending Machine Business Simulator 的标志、截图与主视觉素材。',
+
+    'footer.rights': '保留所有权利。'
   },
 
-  'game.vmbs.title': { en: 'Vending Machine Business Simulator', ko: 'Vending Machine Business Simulator', zh: 'Vending Machine Business Simulator', ja: 'Vending Machine Business Simulator' },
-  'game.vmbs.desc': {
-    en: 'Build your own vending empire. Buy, place, stock, and expand.',
-    ko: '자판기 제국을 건설하세요. 구매, 설치, 재고 관리, 확장까지.',
-    zh: '建立你的自动售货机帝国。购买、放置、补货、扩展。',
-    ja: '自販機帝国を築こう。購入、設置、補充、拡大。'
-  },
-  'game.vmbs.desc2': {
-    en: 'Rent locations, set up your product supply chain, optimize prices, manage inventory based on demand, and track growth with analytics.',
-    ko: '장소를 임대하고, 공급망을 구축하고, 가격을 최적화하고, 수요에 따라 재고를 관리하며 분석으로 성장을 추적하세요.',
-    zh: '租赁场地、建立供应链、优化定价、按需管理库存，并通过数据分析追踪增长。',
-    ja: '場所を借りて、供給チェーンを構築し、価格を最適化し、需要に応じた在庫管理をして、分析で成長を追跡しましょう。'
-  },
+  /* ══════════════════ JAPANESE ══════════════════ */
+  ja: {
+    'nav.games': 'ゲーム',
+    'nav.studio': 'スタジオ',
+    'nav.community': 'コミュニティ',
+    'nav.contact': 'お問い合わせ',
 
-  'game.gss.title': { en: 'Game Store Simulator', ko: 'Game Store Simulator', zh: 'Game Store Simulator', ja: 'Game Store Simulator' },
-  'game.gss.desc': {
-    en: 'Manage your own game store. Buy stock, set prices, and attract customers.',
-    ko: '나만의 게임 상점을 운영하세요. 재고를 구매하고, 가격을 설정하고, 고객을 유치하세요.',
-    zh: '经营你自己的游戏商店。进货、定价、吸引顾客。',
-    ja: '自分だけのゲームショップを経営。仕入れ、価格設定、集客。'
-  },
-  'game.gss.desc2': {
-    en: 'Run your own shop, trade smart, manage stock, and turn your store into a player\'s favorite spot.',
-    ko: '직접 가게를 운영하고, 현명하게 거래하고, 재고를 관리하며 플레이어들이 사랑하는 가게로 만들어 보세요.',
-    zh: '经营自己的店铺，聪明交易，管理库存，把你的商店变成玩家最爱的地方。',
-    ja: '自分の店を経営し、賢く取引し、在庫を管理し、プレイヤーのお気に入りの場所に育てよう。'
-  },
+    'hero.tag': 'インディーゲームスタジオ · トルコ',
+    'hero.sub': '一日を丸ごと奪うのではなく、日常のかたわらに置いておける。そんな小さなシミュレーション＆放置系ゲームを作っています。',
+    'hero.cta.games': 'ゲームを見る',
+    'hero.cta.steam': 'Steam ページ',
+    'hero.scroll': 'スクロール',
 
-  'game.steam':    { en: 'Steam', ko: 'Steam', zh: 'Steam', ja: 'Steam' },
-  'game.presskit': { en: 'Press Kit', ko: '프레스 키트', zh: '新闻资料', ja: 'プレスキット' },
-  'game.viewpresskit': { en: 'View Press Kit', ko: '프레스 키트 보기', zh: '查看新闻资料', ja: 'プレスキットを見る' },
+    'games.eyebrow': 'カタログ',
+    'games.title': 'ゲーム',
+    'games.sub': 'Steam で配信中の 5 タイトル。店、自販機、船、そしてその裏側の数字たち。',
 
-  /* ───────── STORE DESCRIPTION ───────── */
-  'store.intro': {
-    en: 'Corner Market is an idle market simulator designed to sit at the corner of your screen.',
-    ko: 'Corner Market는 화면 한쪽 구석에 놓고 사용하는 방치형 시장 시뮬레이터입니다.',
-    zh: 'Corner Market 是一款挂机市场模拟器，专为放置在屏幕角落而设计。',
-    ja: 'Corner Market は、画面の片隅に置いておけるアイドル系マーケット経営シミュレーターです。'
-  },
-  'store.intro2': {
-    en: 'Letting you run your own cozy shop while getting on with your day!',
-    ko: '일상을 보내면서 나만의 아늑한 가게를 운영해 보세요!',
-    zh: '让你在处理日常事务的同时，经营自己温馨的小店！',
-    ja: '日常の作業をこなしながら、自分だけの居心地の良いお店を経営しましょう！'
-  },
-  'store.stock': {
-    en: 'Order products and watch your market come to life as items get restocked, and sold. Unlock new product categories as you grow. Grow your business from small store to supermarket.',
-    ko: '상품을 주문하고 물건이 채워지고 팔리면서 마켓이 살아나는 모습을 지켜보세요. 성장하면서 새로운 상품 카테고리를 해금하세요. 작은 가게에서 슈퍼마켓으로 사업을 키워나가세요.',
-    zh: '订购商品，看着货架补货、商品售出，见证你的市场逐渐焕发生机。随着发展解锁新的商品类别，将生意从小店铺一步步做成超市。',
-    ja: '商品を注文して、商品が補充・販売されていくにつれてマーケットが活気づく様子を見守りましょう。成長するにつれて新しい商品カテゴリーを解放。小さなお店からスーパーマーケットへとビジネスを拡大しましょう。'
-  },
-  'store.earn': {
-    en: 'Every sale fills your register, use your profits to expand your store. Open new aisles and attract more customers to keep the foot traffic flowing.',
-    ko: '판매할 때마다 금전 등록기가 채워집니다. 수익을 사용해 가게를 확장하세요. 새로운 통로를 열고 더 많은 고객을 유치해 방문객의 흐름을 이어가세요.',
-    zh: '每笔销售都会充实你的收银机，用利润来扩大你的店铺。开辟新通道，吸引更多顾客，让人流源源不断。',
-    ja: '売上のたびにレジに売上が積み上がります。利益を使ってお店を拡張しましょう。新しい通路を開放し、より多くのお客様を呼び込んで、お客様の流れを途切れさせないようにしましょう。'
-  },
-  'store.hire': {
-    en: 'Bring on staff to handle restocking, checkout, cleaning, and deliveries. Expand your team to run a smoother, faster, and more profitable corner market.',
-    ko: '직원을 고용해 재입고, 계산, 청소, 배달을 맡기세요. 팀을 확장하여 더 원활하고 빠르고 수익성 높은 코너 마켓을 운영하세요.',
-    zh: '雇用员工负责补货、收银、清洁和配送。扩充团队，让你的转角超市运转得更顺畅、更高效、更盈利。',
-    ja: 'スタッフを雇って、補充・レジ・清掃・配達を任せましょう。チームを拡大して、より円滑で効率的、そして収益性の高いコーナーマーケットを運営しましょう。'
-  },
-  'store.multi': {
-    en: 'Corner Market is built to sit comfortably at the corner of your screen so you can focus on other work while your shop runs itself. Zoom in or out for a less distracting view, or drag it anywhere on your screen when you need it out of the way.',
-    ko: 'Corner Market은 화면 한쪽 구석에 편안하게 자리잡도록 설계되어, 가게가 알아서 돌아가는 동안 다른 작업에 집중할 수 있습니다. 덜 방해가 되는 화면 크기로 줌 인·아웃하거나, 필요할 때 화면 어디든 드래그해서 옮길 수 있습니다.',
-    zh: 'Corner Market 专为舒适地置于屏幕角落而设计，让你在店铺自动运转的同时专注于其他工作。可随意缩放视图以减少干扰，或在需要时将窗口拖动到屏幕任意位置。',
-    ja: 'Corner Market は画面の隅に快適に配置できるよう設計されているため、お店が自動で動いている間も他の作業に集中できます。邪魔にならないようにズームイン・アウトしたり、必要なときは画面上の好きな場所にドラッグしたりできます。'
-  },
-  'store.twitch.label': {
-    en: 'Twitch Integration available:',
-    ko: 'Twitch 연동 지원:',
-    zh: '支持 Twitch 集成：',
-    ja: 'Twitch 連携機能あり：'
-  },
-  'store.twitch.desc': {
-    en: ' Streamers can run their market live while viewers join as customers, showing up in your shop with their own Twitch names.',
-    ko: ' 스트리머는 마켓을 라이브로 운영하면서 시청자들이 고객으로 참여해 자신의 Twitch 이름으로 가게에 나타납니다.',
-    zh: ' 主播可以在直播中运营自己的市场，观众以顾客身份加入，并以自己的 Twitch 用户名出现在店铺中。',
-    ja: ' ストリーマーはマーケットをライブで運営でき、視聴者が自分の Twitch 名でお客様としてお店に登場します。'
-  },
+    'game.corner-market.desc': '画面の隅で動きつづける、のんびり遊べる放置型マーケットシミュレーター。棚を補充し、お客を迎え、スタッフを雇って、小さな店を大型スーパーへと育てていきます。その間、あなたは自分の作業を続けるだけ。',
+    'game.fisher-idle.desc': '大海原のまん中、小さな船一隻からのスタート。釣って、強化して、船を買い足していけば、やがて一つの船団が動きはじめます。魚が増えれば、その分だけ金貨も増えていきます。',
+    'game.game-store-sim.desc': '自分だけのゲームショップを経営しよう。仕入れて、荷物を自分で運び込み、値段を決めて、手狭な店を街いちばんのゲームショップに育て上げます。',
+    'game.vending-machine.desc': '自販機 1 台から始める自動販売ビジネス。設置場所を借り、供給を管理し、需要に合わせて価格を調整して、ルートが利益を生むまで育てていきます。',
+    'game.homeless-life.desc': 'すべてを失いました。路上で生き延び、少しずつ立て直しながら、どこまで這い上がれるかを確かめてください。',
+
+    'tag.idle': '放置',
+    'tag.simulation': 'シミュレーション',
+    'tag.casual': 'カジュアル',
+    'tag.adventure': 'アドベンチャー',
+    'tag.management': '経営',
+    'tag.indie': 'インディー',
+    'tag.survival': 'サバイバル',
+
+    'game.steam': 'Steam で見る',
+    'game.presskit': 'プレスキット',
+    'meta.platform': 'Windows · Steam',
+
+    'studio.eyebrow': 'スタジオについて',
+    'studio.title': '手放しにくい、小さなゲームを作っています。',
+    'studio.stat.games': 'リリース作品',
+    'studio.stat.langs': '対応言語',
+    'studio.stat.platform': 'Steam / Windows',
+    'studio.p1': 'Crow Interactive はトルコを拠点とするインディーゲームスタジオです。街角の店、自販機のルート、漁船団、ゲームショップ。ひと目で理解できるシステムと、もう少し伸ばしたくなる数字でできた、小さなシミュレーション＆放置系ゲームを作っています。',
+    'studio.p2': '長年モバイルゲームを作ったのち、スタジオはより深く、より個人的なプロジェクトを追うために PC へ完全に軸足を移しました。リリースはすべて Steam。仕事や動画視聴、休憩のかたわらでもう一つウィンドウを開いておくプレイヤーに向けて作っています。',
+    'studio.p3': '少人数、短いサイクル、直接のやり取り。バグを見つけた方、作品を取り上げたい方は、いつでもご連絡ください。',
+
+    'creator.title': 'コンテンツクリエイター向けポリシー',
+    'creator.text': '当スタジオのゲームはすべて、コンテンツクリエイターに完全開放されています。配信も実況動画の投稿も収益化も自由です。許可も条件も必要ありません。',
+
+    'community.eyebrow': 'コミュニティ',
+    'community.title': '要望も、バグ報告も、先行ビルドも。',
+    'community.sub': 'アップデートが最初に告知される場所であり、良いアイデアの多くが生まれる場所でもあります。',
+    'community.cta': 'Discord に参加',
+
+    'contact.eyebrow': 'ご連絡',
+    'contact.title': 'お問い合わせ',
+    'contact.sub': 'メディア、協業、パブリッシング、サポート。窓口はひとつ、すべて目を通しています。',
+    'contact.press.title': 'レビューキー＆プレス',
+    'contact.press.text': 'メディア関係者とコンテンツクリエイターの方はメールでレビューキーをご請求いただけます。媒体名またはチャンネル名、視聴者規模、参考リンクを添えてお送りください。',
+    'contact.press.cta': 'キーを請求する',
+    'contact.kits.title': 'プレスキット',
+    'contact.kits.text': 'Corner Market と Vending Machine Business Simulator のロゴ、スクリーンショット、キーアート。',
+
+    'footer.rights': 'All rights reserved.'
+  }
 };
 
-/* ── Language detection & switching ── */
+/* HTML lang attribute per locale, for correct font fallback and hyphenation. */
+const HTML_LANG = { en: 'en', ko: 'ko', zh: 'zh-Hans', ja: 'ja' };
 
-function detectLanguage() {
-  const stored = localStorage.getItem('site-lang');
-  if (stored && SUPPORTED_LANGS.includes(stored)) return stored;
+function t(key, lang) {
+  const l = lang || currentLang();
+  const table = translations[l] || translations.en;
+  return table[key] !== undefined ? table[key] : (translations.en[key] !== undefined ? translations.en[key] : key);
+}
 
-  const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-  const short = browserLang.slice(0, 2);
-  if (SUPPORTED_LANGS.includes(short)) return short;
-
-  return DEFAULT_LANG;
+function currentLang() {
+  try {
+    const stored = localStorage.getItem('site-lang');
+    if (stored && LANGS.indexOf(stored) !== -1) return stored;
+  } catch (e) {}
+  return 'en';
 }
 
 function setLanguage(lang) {
-  if (!SUPPORTED_LANGS.includes(lang)) lang = DEFAULT_LANG;
-  localStorage.setItem('site-lang', lang);
-  document.documentElement.lang = lang;
+  if (LANGS.indexOf(lang) === -1) lang = 'en';
 
-  // Update all [data-i18n] elements
   document.querySelectorAll('[data-i18n]').forEach(function (el) {
     const key = el.getAttribute('data-i18n');
-    const entry = translations[key];
-    if (!entry) return;
-    const text = entry[lang] || entry[DEFAULT_LANG];
-    // Check for attribute-based translation (alt, placeholder, title, aria-label)
-    const attr = el.getAttribute('data-i18n-attr');
-    if (attr) {
-      el.setAttribute(attr, text);
-    } else {
-      el.textContent = text;
-    }
+    const val = t(key, lang);
+    if (val !== undefined) el.textContent = val;
   });
 
-  // Update language-specific images (data-i18n-src)
-  document.querySelectorAll('[data-i18n-src]').forEach(function (el) {
-    const pattern = el.getAttribute('data-i18n-src');
-    const folder = LANG_TO_TITLE_FOLDER[lang] || LANG_TO_TITLE_FOLDER[DEFAULT_LANG];
-    el.src = pattern.replace('{lang}', lang).replace(/{langFolder}/g, folder);
-  });
+  document.documentElement.setAttribute('lang', HTML_LANG[lang] || 'en');
 
-  // Update active indicator in language selector
+  try { localStorage.setItem('site-lang', lang); } catch (e) {}
+
+  const codeEl = document.getElementById('langCode');
+  if (codeEl) codeEl.textContent = lang.toUpperCase();
+
   document.querySelectorAll('[data-lang-btn]').forEach(function (btn) {
-    const btnLang = btn.getAttribute('data-lang-btn');
-    btn.classList.toggle('bg-apricot/20', btnLang === lang);
-    btn.classList.toggle('font-bold', btnLang === lang);
+    const active = btn.getAttribute('data-lang-btn') === lang;
+    btn.classList.toggle('c-text', active);
+    btn.classList.toggle('c-dim', !active);
   });
-}
 
-function initLanguage() {
-  const lang = detectLanguage();
-  setLanguage(lang);
-}
-
-// Auto-init when DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initLanguage);
-} else {
-  initLanguage();
+  document.dispatchEvent(new CustomEvent('langchange', { detail: { lang: lang } }));
 }
