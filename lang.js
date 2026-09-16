@@ -54,6 +54,8 @@ const translations = {
 
     'creator.title': 'Content creator policy',
     'creator.text': 'All of our games are fully open for content creators. Stream them, record Let’s Plays, and monetise your content freely. No permission needed, no strings attached.',
+    'nav.guidelines': 'Creator guidelines',
+    'creator.cta': 'Streaming & video guidelines',
 
     'community.eyebrow': 'Community',
     'community.title': 'Feature requests, bug reports, early builds.',
@@ -118,6 +120,8 @@ const translations = {
 
     'creator.title': '콘텐츠 크리에이터 정책',
     'creator.text': '저희의 모든 게임은 콘텐츠 크리에이터에게 완전히 열려 있습니다. 방송하고, 플레이 영상을 찍고, 자유롭게 수익을 창출하세요. 별도의 허가나 조건은 없습니다.',
+    'nav.guidelines': '크리에이터 가이드라인',
+    'creator.cta': '방송·영상 가이드라인',
 
     'community.eyebrow': '커뮤니티',
     'community.title': '기능 제안, 버그 제보, 얼리 빌드.',
@@ -182,6 +186,8 @@ const translations = {
 
     'creator.title': '内容创作者政策',
     'creator.text': '我们所有的游戏都对内容创作者完全开放。可以直播、录制实况视频，并自由地进行内容变现。无需申请，也没有附加条件。',
+    'nav.guidelines': '创作者指南',
+    'creator.cta': '直播与视频指南',
 
     'community.eyebrow': '社区',
     'community.title': '功能建议、bug 反馈、抢先体验版本。',
@@ -246,6 +252,8 @@ const translations = {
 
     'creator.title': 'コンテンツクリエイター向けポリシー',
     'creator.text': '当スタジオのゲームはすべて、コンテンツクリエイターに完全開放されています。配信も実況動画の投稿も収益化も自由です。許可も条件も必要ありません。',
+    'nav.guidelines': '配信ガイドライン',
+    'creator.cta': '配信・動画投稿ガイドライン',
 
     'community.eyebrow': 'コミュニティ',
     'community.title': '要望も、バグ報告も、先行ビルドも。',
@@ -275,6 +283,9 @@ function t(key, lang) {
 }
 
 function currentLang() {
+  // ?lang=ja lets us link creators straight to a given language.
+  const param = new URLSearchParams(window.location.search).get('lang');
+  if (param && LANGS.indexOf(param) !== -1) return param;
   try {
     const stored = localStorage.getItem('site-lang');
     if (stored && LANGS.indexOf(stored) !== -1) return stored;
@@ -294,6 +305,15 @@ function setLanguage(lang) {
   document.documentElement.setAttribute('lang', HTML_LANG[lang] || 'en');
 
   try { localStorage.setItem('site-lang', lang); } catch (e) {}
+
+  // Keep a ?lang= link in sync so a reload doesn't undo a manual switch.
+  try {
+    const url = new URL(window.location.href);
+    if (url.searchParams.has('lang') && url.searchParams.get('lang') !== lang) {
+      url.searchParams.set('lang', lang);
+      history.replaceState(null, '', url);
+    }
+  } catch (e) {}
 
   const codeEl = document.getElementById('langCode');
   if (codeEl) codeEl.textContent = lang.toUpperCase();
